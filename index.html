@@ -1,510 +1,106 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Credit Affinity Union Bank </title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap');
-
-        :root {
-            --bg: #050505;
-            --card: #0f0f0f;
-            --border: #1a1a1a;
-            --text: #f5f5f5;
-            --muted: #9ca3af;
-            --accent: #10b981;
-        }
-
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-        }
-
-        .logo-font { font-family: 'Playfair Display', serif; }
-
-        .card-hover {
-            transition: all 0.22s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.4);
-        }
-
-        .shimmer-balance {
-            background: linear-gradient(90deg, #111 25%, #222 50%, #111 75%);
-            background-size: 200% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer-text 2.2s infinite;
-        }
-        @keyframes shimmer-text {
-            0%   { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-
-        .skeleton {
-            background: linear-gradient(90deg, #111 0%, #1a1a1a 50%, #111 100%);
-            background-size: 200% 100%;
-            animation: loading 1.6s infinite;
-        }
-        @keyframes loading {
-            0%   { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-
-        .frozen-pulse {
-            animation: frozen 2.4s infinite ease-in-out;
-        }
-        @keyframes frozen {
-            0%,100% { opacity: 0.9; }
-            50%     { opacity: 0.55; }
-        }
-
-        .modal-enter {
-            animation: modalPop 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        @keyframes modalPop {
-            from { opacity: 0; transform: scale(0.94) translateY(12px); }
-            to   { opacity: 1; transform: scale(1) translateY(0); }
-        }
-
-        @media (max-width: 640px) {
-            .balance-display { font-size: 2.6rem; line-height: 1; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Northstar Markets provides a clear, modern brokerage experience.">
+  <title>Northstar Markets | Invest with clarity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#10231f; --green:#0a6b53; --lime:#d9ef85; --cream:#f5f4ed; --sand:#e8e4d8; --muted:#60716c; --line:#d7d9cf; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--cream); font-family:Manrope,Arial,sans-serif; }
+    a { color:inherit; text-decoration:none; }
+    button { font:inherit; cursor:pointer; }
+    .wrap { width:min(1160px,calc(100% - 40px)); margin:auto; }
+    .eyebrow { margin:0 0 14px; color:var(--green); font:700 11px "DM Mono",monospace; letter-spacing:.12em; text-transform:uppercase; }
+    .nav { height:78px; display:flex; justify-content:space-between; align-items:center; }
+    .brand { display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:-.05em; font-size:21px; }
+    .mark { display:grid; place-items:center; width:31px; height:31px; color:white; background:var(--green); border-radius:50% 50% 50% 8%; transform:rotate(-18deg); }
+    .mark span { transform:rotate(18deg); }
+    .nav-links { display:flex; gap:28px; align-items:center; font-size:14px; font-weight:600; }
+    .button { display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--green); border-radius:100px; padding:12px 20px; background:var(--green); color:white; font-size:14px; font-weight:700; transition:.2s; }
+    .button:hover { background:#07513f; transform:translateY(-1px); }
+    .button-light { background:transparent; color:var(--ink); border-color:#aeb8af; }
+    .button-light:hover { color:white; border-color:var(--green); }
+    .hero { padding:66px 0 82px; display:grid; grid-template-columns:1.02fr .98fr; gap:58px; align-items:center; }
+    h1 { max-width:610px; margin:0; font-size:clamp(48px,6vw,80px); letter-spacing:-.075em; line-height:.98; }
+    .hero h1 em { color:var(--green); font-style:normal; }
+    .intro { max-width:500px; margin:28px 0; color:var(--muted); font-size:18px; line-height:1.7; }
+    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; }
+    .disclaimer { margin:21px 0 0; color:#6f7772; font-size:11px; line-height:1.5; }
+    .market-card { position:relative; overflow:hidden; padding:27px; min-height:420px; border-radius:22px; background:var(--ink); color:white; box-shadow:20px 25px 0 var(--lime); }
+    .market-card:before { content:""; position:absolute; width:300px; height:300px; border:1px solid #719286; border-radius:50%; right:-105px; top:-105px; }
+    .market-card:after { content:""; position:absolute; width:220px; height:220px; border:1px solid #719286; border-radius:50%; right:-65px; top:-65px; }
+    .card-head, .quote, .chart, .market-footer { position:relative; z-index:1; }
+    .card-head { display:flex; justify-content:space-between; color:#c2d0ca; font:12px "DM Mono",monospace; }
+    .status { color:var(--lime); } .quote { margin-top:58px; }
+    .quote small { color:#b4c2bc; font-size:13px; } .quote strong { display:block; margin-top:5px; font-size:55px; letter-spacing:-.06em; }
+    .gain { display:inline-block; margin-top:8px; padding:5px 9px; border-radius:6px; background:#17493d; color:var(--lime); font:12px "DM Mono",monospace; }
+    .chart { height:110px; margin-top:32px; }
+    .chart svg { width:100%; height:100%; overflow:visible; }
+    .market-footer { display:flex; justify-content:space-between; padding-top:16px; border-top:1px solid #385047; color:#c2d0ca; font-size:12px; }
+    .strip { border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:#fffefa; }
+    .strip-inner { min-height:83px; display:flex; justify-content:space-between; align-items:center; gap:20px; }
+    .strip p { margin:0; max-width:430px; font-size:13px; font-weight:700; }
+    .ticker { display:flex; gap:25px; overflow:auto; font:12px "DM Mono",monospace; white-space:nowrap; }
+    .up { color:var(--green); } .down { color:#b2483e; }
+    section { padding:106px 0; }
+    .section-heading { display:flex; justify-content:space-between; align-items:end; gap:25px; margin-bottom:42px; }
+    h2 { max-width:640px; margin:0; font-size:clamp(35px,4.5vw,57px); line-height:1.06; letter-spacing:-.06em; }
+    .section-heading > p:last-child { max-width:330px; margin:0; color:var(--muted); font-size:14px; line-height:1.65; }
+    .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:17px; }
+    .step { min-height:240px; padding:27px; border:1px solid var(--line); border-radius:15px; background:#fbfaf5; }
+    .number { color:var(--green); font:13px "DM Mono",monospace; }
+    .step h3 { margin:53px 0 9px; font-size:21px; letter-spacing:-.04em; }.step p { margin:0; color:var(--muted); font-size:14px; line-height:1.55; }
+    .platform { background:var(--ink); color:white; }
+    .platform .eyebrow { color:var(--lime); }.platform .section-heading > p:last-child { color:#b9c6c0; }
+    .features { display:grid; grid-template-columns:1.22fr .78fr; gap:17px; }
+    .feature-panel { padding:34px; border-radius:17px; background:#1b332d; min-height:330px; }
+    .feature-panel h3 { margin:0; font-size:30px; letter-spacing:-.05em; }.feature-panel p { max-width:380px; color:#b9c6c0; line-height:1.65; font-size:14px; }
+    .mini-chart { height:125px; margin-top:45px; border-bottom:1px solid #456157; background:repeating-linear-gradient(0deg,transparent 0 30px,#314941 31px); }
+    .mini-chart svg { width:100%; height:100%; }
+    .benefits { display:grid; gap:1px; border-radius:17px; overflow:hidden; background:#355149; }.benefit { padding:22px; background:#28433b; }.benefit b { display:block; margin-bottom:5px; font-size:15px; }.benefit span { color:#b9c6c0; font-size:12px; }
+    .accounts { display:grid; grid-template-columns:repeat(3,1fr); gap:17px; }.account { position:relative; overflow:hidden; padding:28px; min-height:275px; border-radius:15px; background:var(--sand); }.account:nth-child(2) { background:var(--lime); }.account:nth-child(3) { color:white; background:var(--green); }.account h3 { margin:55px 0 10px; font-size:24px; letter-spacing:-.05em; }.account p { max-width:260px; margin:0; font-size:13px; line-height:1.6; opacity:.76; }.account a { display:inline-block; margin-top:20px; font-size:13px; font-weight:800; border-bottom:1px solid currentColor; }
+    .cta { padding:72px 0; background:var(--lime); }.cta-inner { display:flex; justify-content:space-between; align-items:center; gap:40px; }.cta h2 { max-width:600px; }.cta p { color:#395849; font-size:14px; }.cta .button { background:var(--ink); border-color:var(--ink); }
+    footer { padding:48px 0 30px; background:var(--ink); color:white; }.footer-top { display:flex; justify-content:space-between; gap:40px; padding-bottom:42px; border-bottom:1px solid #385047; }.footer-links { display:flex; gap:42px; }.footer-links div { display:grid; gap:12px; font-size:13px; color:#bdc9c4; }.footer-links b { color:white; }.fine-print { margin:25px 0 0; color:#8ba098; font-size:10px; line-height:1.65; }
+    @media (max-width:760px) { .nav-links { display:none; }.hero,.features { grid-template-columns:1fr; gap:38px; }.hero { padding-top:38px; }.market-card { min-height:350px; }.strip-inner,.section-heading,.cta-inner,.footer-top { align-items:flex-start; flex-direction:column; }.steps,.accounts { grid-template-columns:1fr; }.section-heading { margin-bottom:30px; } section { padding:70px 0; }.footer-links { gap:25px; flex-wrap:wrap; } }
+  </style>
 </head>
 <body>
-
+  <header class="wrap nav">
+    <a class="brand" href="#" aria-label="Northstar Markets home"><span class="mark"><span>✦</span></span>northstar</a>
+    <nav class="nav-links" aria-label="Main navigation"><a href="#invest">Investing</a><a href="#platform">Platform</a><a href="#accounts">Accounts</a><a href="#learn">Learn</a></nav>
+    <a class="button button-light" href="#start">Open an account</a>
+  </header>
+  <main>
+    <div class="wrap hero">
+      <div>
+        <p class="eyebrow">Investing, made clear</p>
+        <h1>Make your next move <em>your best one.</em></h1>
+        <p class="intro">A modern brokerage for people building what comes next. Invest with powerful tools, thoughtful guidance, and no unnecessary noise.</p>
+        <div class="hero-actions"><a class="button" href="#start">Start investing <span aria-hidden="true">&nbsp;→</span></a><a class="button button-light" href="#platform">Explore the platform</a></div>
+        <p class="disclaimer">Investing involves risk, including possible loss of principal. This site is for demonstration purposes only and does not offer investment advice.</p>
+      </div>
+      <aside class="market-card" aria-label="Sample market quote">
+        <div class="card-head"><span>MARKET PULSE</span><span class="status">● MARKET OPEN</span></div>
+        <div class="quote"><small>S&amp;P 500</small><strong>5,218.86</strong><span class="gain">+0.64% &nbsp; +33.29</span></div>
+        <div class="chart"><svg viewBox="0 0 450 110" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="fill" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#d9ef85" stop-opacity=".35"/><stop offset="1" stop-color="#d9ef85" stop-opacity="0"/></linearGradient></defs><path d="M0 94 L25 85 48 88 70 76 91 83 114 59 139 65 162 42 186 56 209 37 238 48 262 31 287 39 315 24 342 34 369 14 398 25 422 9 450 16 V110 H0Z" fill="url(#fill)"/><path d="M0 94 L25 85 48 88 70 76 91 83 114 59 139 65 162 42 186 56 209 37 238 48 262 31 287 39 315 24 342 34 369 14 398 25 422 9 450 16" fill="none" stroke="#d9ef85" stroke-width="3"/></svg></div>
+        <div class="market-footer"><span>Updated 4:00 PM ET</span><span>View markets →</span></div>
+      </aside>
     </div>
-
-    <!-- LOGIN -->
-    <div id="login-page" class="min-h-screen flex items-center justify-center pt-16 px-5">
-        <div class="w-full max-w-md bg-black/60 backdrop-blur-xl border border-zinc-800/70 rounded-3xl shadow-2xl overflow-hidden">
-            <div class="bg-gradient-to-br from-emerald-800 to-emerald-950 p-10 text-center">
-                <div class="flex justify-center items-center gap-3 mb-2">
-                    <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-emerald-800 text-4xl font-bold logo-font shadow-lg">T</div>
-                    <h1 class="text-5xl font-bold logo-font tracking-tight text-white">Affinity Credit Union</h1>
-                </div>
-                <p class="text-emerald-100/70 text-sm"> Banking Experience</p>
-            </div>
-
-            <div class="p-9">
-                <h2 class="text-2xl font-semibold text-center mb-2">Welcome back</h2>
-                <p class="text-center text-zinc-400 text-sm mb-8">Sign in to view your accounts</p>
-
-                <form id="login-form" class="space-y-6">
-                    <div>
-                        <label class="block text-sm font-medium text-zinc-400 mb-1.5">Email address</label>
-                        <input id="email" type="email" required autocomplete="email"
-                               class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 focus:outline-none focus:border-emerald-500/60 focus:ring-1 focus:ring-emerald-500/30 transition"
-                               />
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-zinc-400 mb-1.5">Password</label>
-                        <input id="password" type="password" required autocomplete="current-password"
-                               class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-5 py-4 focus:outline-none focus:border-emerald-500/60 focus:ring-1 focus:ring-emerald-500/30 transition"
-                               placeholder="••••••••" />
-                    </div>
-                    <button type="submit"
-                            class="w-full bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 py-4.5 rounded-xl font-semibold text-lg transition transform active:scale-[0.98]">
-                        Sign In
-                    </button>
-                </form>
-
-                <div class="mt-8 text-center text-xs text-zinc-500">
-                    credentials<br>
-                    <span class="font-mono bg-zinc-900 px-2 py-0.5 rounded">forgot password?</span><br>
-                    <span class="font-mono bg-zinc-900 px-2 py-0.5 rounded">Click here</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 2FA -->
-    <div id="verification-page" class="hidden min-h-screen flex items-center justify-center pt-16 px-5 bg-black">
-        <div class="w-full max-w-md bg-black/60 backdrop-blur-xl border border-zinc-800/70 rounded-3xl p-10 shadow-2xl">
-            <div class="text-center mb-10">
-                <div class="w-20 h-20 mx-auto bg-emerald-950/40 rounded-full flex items-center justify-center text-5xl mb-6">🔐</div>
-                <h2 class="text-2xl font-semibold mb-2">Verification Required</h2>
-                <p class="text-zinc-400 text-sm">Enter the 6-digit code sent to your device</p>
-            </div>
-
-            <div class="space-y-8">
-                <input id="verify-code" type="text" maxlength="6" inputmode="numeric" pattern="\d{6}" autocomplete="one-time-code"
-                       class="w-full text-center text-5xl tracking-[1.4em] bg-zinc-900 border border-zinc-700 rounded-xl py-6 focus:outline-none focus:border-emerald-500/60 font-mono"
-                       placeholder="******" />
-
-                <button onclick="verifyCode()"
-                        class="w-full bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 py-4.5 rounded-xl font-semibold text-lg transition transform active:scale-[0.98]">
-                    Verify
-                </button>
-
-                <button onclick="backToLogin()" class="w-full text-zinc-400 hover:text-zinc-200 text-sm py-3 transition">
-                    ← Back to sign in
-                </button>
-            </div>
-
-            <div class="mt-10 text-center text-xs text-zinc-500">
-                Resend code: <span class="font-mono bg-zinc-900 px-2 py-1 rounded">Max number of codes sent</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- DASHBOARD -->
-    <div id="dashboard-page" class="hidden min-h-screen bg-black pb-32">
-
-        <!-- Top bar -->
-        <nav class="bg-black/70 backdrop-blur-xl border-b border-zinc-800/50 sticky top-14 z-40">
-            <div class="max-w-6xl mx-auto px-5 py-4 flex justify-between items-center">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-emerald-800 rounded-2xl flex items-center justify-center text-white font-bold logo-font text-2xl shadow">T</div>
-                    <span class="text-2xl font-semibold logo-font tracking-tight">Affinity Credit Union Bank</span>
-                </div>
-                <div class="flex items-center gap-6">
-                    <div class="relative">
-                        <button id="notif-btn" class="text-zinc-300 hover:text-white transition relative">
-                            <i class="fa-solid fa-bell text-xl"></i>
-                            <span class="absolute -top-1.5 -right-1.5 bg-red-600 text-white text-[10px] font-bold rounded-full min-w-[18px] h-[18px] flex items-center justify-center ring-2 ring-black">1</span>
-                        </button>
-                        <div id="notif-dropdown" class="hidden absolute right-0 mt-3 w-80 bg-zinc-900 border border-zinc-800 rounded-2xl shadow-2xl overflow-hidden z-50">
-                            <div class="p-4 border-b border-zinc-800">
-                                <div class="flex items-start gap-3">
-                                    <div class="text-2xl">⚠️</div>
-                                    <div>
-                                        <p class="font-medium">New device login detected</p>
-                                        <p class="text-sm text-zinc-400 mt-1">*****, USA • Chrome • Today </p>
-                                        <button class="text-xs text-emerald-400 hover:underline mt-2">Review activity</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button onclick="logout()" class="text-red-400 hover:text-red-300 text-sm font-medium flex items-center gap-2">
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out
-                    </button>
-                </div>
-            </div>
-        </nav>
-
-        <main class="max-w-6xl mx-auto px-5 pt-8">
-
-            <!-- Balance -->
-            <div class="bg-gradient-to-br from-zinc-950 to-black border border-zinc-800/60 rounded-3xl p-8 mb-7 shadow-2xl card-hover">
-                <div class="flex justify-between items-start">
-                    <div>
-                        <div class="flex items-center gap-3 text-sm text-zinc-400">
-                            <span>CHECKING •••• 4872</span>
-                            <button id="toggle-balance-btn" class="text-zinc-500 hover:text-zinc-300 transition">
-                                <i id="eye-icon" class="fa-solid fa-eye-slash"></i>
-                            </button>
-                        </div>
-                        <div class="mt-5">
-                            <span id="balance-display" class="block text-5xl sm:text-6xl font-semibold tracking-tight">$757,300</span>
-                        </div>
-                        <div class="mt-5 inline-flex items-center gap-2 px-5 py-1.5 bg-red-950/60 text-red-300 text-sm font-medium rounded-full frozen-pulse">
-                            <i class="fa-solid fa-lock"></i> ACCOUNT FROZEN
-                        </div>
-                    </div>
-                    <div class="text-7xl opacity-80">🇺🇸</div>
-                </div>
-                <div class="mt-6 text-xs text-zinc-500">
-                    Last login: March 18, 2026  7:41 PM WAT  •  Chrome on mobile
-                </div>
-            </div>
-
-            <!-- Quick actions -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-                <button onclick="showDepositModal()" class="bg-zinc-950 border border-zinc-800 rounded-2xl p-6 text-center hover:border-emerald-700/50 transition active:scale-95 card-hover">
-                    <i class="fa-solid fa-plus-circle text-4xl text-emerald-500 mb-3"></i>
-                    <div class="font-medium">Deposit</div>
-                </button>
-                <button onclick="showSendModal()" class="bg-zinc-950 border border-zinc-800 rounded-2xl p-6 text-center hover:border-rose-700/50 transition active:scale-95 card-hover">
-                    <i class="fa-solid fa-paper-plane text-4xl text-rose-500 mb-3"></i>
-                    <div class="font-medium">Send</div>
-                </button>
-                <button onclick="showReceiveModal()" class="bg-zinc-950 border border-zinc-800 rounded-2xl p-6 text-center hover:border-sky-700/50 transition active:scale-95 card-hover">
-                    <i class="fa-solid fa-qrcode text-4xl text-sky-400 mb-3"></i>
-                    <div class="font-medium">Receive</div>
-                </button>
-                <button disabled class="bg-zinc-950 border border-zinc-800 rounded-2xl p-6 text-center opacity-50 cursor-not-allowed">
-                    <i class="fa-solid fa-credit-card text-4xl text-violet-400 mb-3"></i>
-                    <div class="font-medium">Cards</div>
-                </button>
-            </div>
-
-            <!-- Recent activity -->
-            <div class="bg-zinc-950 border border-zinc-800 rounded-3xl overflow-hidden">
-                <div class="px-6 py-5 border-b border-zinc-800 flex justify-between items-center">
-                    <h3 class="font-semibold text-lg">Recent Activity</h3>
-                    <span class="text-xs bg-zinc-900 px-3 py-1 rounded-full">Last 30 days</span>
-                </div>
-                <div id="tx-list" class="divide-y divide-zinc-800/60"></div>
-            </div>
-
-            <!-- Footer trust seals -->
-            <div class="mt-12 text-center text-xs text-zinc-600 space-x-5 sm:space-x-6">
-                <span>SSL Secured</span> <span>•</span>
-                <span>256-bit Encryption</span> <span>•</span>
-                <span>Member FDIC </span> <span>•</span>
-                <span>Equal Housing Lender</span>
-            </div>
-        </main>
-
-        <!-- Mobile bottom nav -->
-        <div class="fixed bottom-0 inset-x-0 bg-black/90 backdrop-blur-xl border-t border-zinc-800 z-50 py-3 px-6 sm:hidden">
-            <div class="flex justify-around text-xs text-zinc-400">
-                <button onclick="showDepositModal()" class="flex flex-col items-center gap-1 hover:text-emerald-400 transition">
-                    <i class="fa-solid fa-plus-circle text-2xl"></i> Deposit
-                </button>
-                <button onclick="showSendModal()" class="flex flex-col items-center gap-1 hover:text-rose-400 transition">
-                    <i class="fa-solid fa-paper-plane text-2xl"></i> Send
-                </button>
-                <button onclick="showReceiveModal()" class="flex flex-col items-center gap-1 hover:text-sky-400 transition">
-                    <i class="fa-solid fa-qrcode text-2xl"></i> Receive
-                </button>
-                <button onclick="logout()" class="flex flex-col items-center gap-1 hover:text-red-400 transition">
-                    <i class="fa-solid fa-arrow-right-from-bracket text-2xl"></i> Exit
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODALS -->
-
-    <div id="deposit-modal" class="hidden fixed inset-0 bg-black/85 z-50 flex items-end sm:items-center justify-center">
-        <div class="bg-zinc-950 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-8 border-t-4 border-emerald-600 modal-enter">
-            <h3 class="text-2xl font-semibold mb-7">Add Funds</h3>
-            <div class="space-y-7">
-                <div>
-                    <label class="block text-sm text-zinc-400 mb-2">Amount</label>
-                    <div class="relative">
-                        <span class="absolute left-5 top-1/2 -translate-y-1/2 text-4xl text-zinc-600">$</span>
-                        <input id="deposit-amt" type="number" step="0.01" min="1" class="w-full bg-black border border-zinc-800 rounded-xl py-5 pl-14 text-4xl focus:outline-none focus:border-emerald-600/60" placeholder="0.00" />
-                    </div>
-                </div>
-                <button onclick="processDeposit()" class="w-full bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 py-5 rounded-xl font-semibold text-lg transition transform active:scale-[0.98]">
-                    Confirm Deposit
-                </button>
-                <button onclick="hideDepositModal()" class="w-full py-4 text-zinc-400 hover:text-zinc-200 transition">Cancel</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="send-modal" class="hidden fixed inset-0 bg-black/85 z-50 flex items-end sm:items-center justify-center">
-        <div class="bg-zinc-950 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-8 border-t-4 border-rose-600 modal-enter">
-            <h3 class="text-2xl font-semibold mb-6">Send Money </h3>
-            <div class="space-y-6">
-                <div>
-                    <label class="block text-sm text-zinc-400 mb-2">Recipient</label>
-                    <input id="send-to" type="email" required class="w-full bg-black border border-zinc-800 rounded-xl px-5 py-4 focus:outline-none focus:border-rose-600/60" placeholder="email@domain.com" />
-                </div>
-                <div>
-                    <label class="block text-sm text-zinc-400 mb-2">Amount</label>
-                    <div class="relative">
-                        <span class="absolute left-5 top-1/2 -translate-y-1/2 text-4xl text-zinc-600">$</span>
-                        <input id="send-amt" type="number" step="0.01" min="1" required class="w-full bg-black border border-zinc-800 rounded-xl py-5 pl-14 text-4xl focus:outline-none focus:border-rose-600/60" placeholder="0.00" />
-                    </div>
-                </div>
-                <button onclick="processSend()" class="w-full bg-rose-600 hover:bg-rose-500 active:bg-rose-700 py-5 rounded-xl font-semibold text-lg transition transform active:scale-[0.98]">
-                    Send Now
-                </button>
-                <button onclick="hideSendModal()" class="w-full py-4 text-zinc-400 hover:text-zinc-200 transition">Cancel</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="receive-modal" class="hidden fixed inset-0 bg-black/85 z-50 flex items-end sm:items-center justify-center">
-        <div class="bg-zinc-950 w-full max-w-md rounded-t-3xl sm:rounded-3xl p-8 modal-enter">
-            <div class="text-center">
-                <div class="w-24 h-24 mx-auto bg-emerald-950/40 rounded-full flex items-center justify-center text-6xl mb-6">📲</div>
-                <h3 class="text-2xl font-semibold mb-3">Receive Money</h3>
-                <p class="text-emerald-400 text-xl font-medium mb-8">Account — Feature in testing</p>
-
-                <div class="bg-black/60 rounded-2xl p-6 text-left text-sm mb-8 divide-y divide-zinc-800/50">
-                    <div class="flex justify-between py-3.5">
-                        <span class="text-zinc-400">Routing number</span>
-                        <span class="font-mono">021000021</span>
-                    </div>
-                    <div class="flex justify-between py-3.5">
-                        <span class="text-zinc-400">Account number</span>
-                        <span class="font-mono">487248724872</span>
-                    </div>
-                    <div class="flex justify-between py-3.5">
-                        <span class="text-zinc-400">Name on account</span>
-                        <span>Devena Taylor Wilson</span>
-                    </div>
-                </div>
-
-                <button onclick="hideReceiveModal()" class="w-full bg-zinc-800 hover:bg-zinc-700 py-5 rounded-xl font-medium transition">
-                    Close
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div id="success-modal" class="hidden fixed inset-0 bg-black/85 z-50 flex items-center justify-center">
-        <div class="bg-zinc-950 max-w-md w-full mx-5 rounded-3xl p-10 text-center modal-enter border-t-4 border-emerald-600">
-            <div id="pause-emoji" class="text-8xl mb-6">⏸</div>
-            <h2 class="text-3xl font-semibold mb-3">Transfer On Hold</h2>
-            <p class="text-zinc-400 mb-10"> contact customer Support To unlock your Account</p>
-
-            <a href="mailto:creditafinityhelpdesk@gmail.com?subject=I Need Help Unfreezing My Accout."
-               class="block bg-emerald-600 hover:bg-emerald-500 py-6 rounded-2xl text-xl font-semibold transition transform active:scale-[0.98]">
-                Click here to Contact Help Centre
-            </a>
-
-            <button onclick="hideSuccessModal()" class="mt-8 text-zinc-400 hover:text-zinc-200 transition">
-                Close
-            </button>
-        </div>
-    </div>
-
-    <script>
-        let balance = 300050.70;
-        let balanceVisible = true;
-
-        const transactions = [
-            { date:"Mar 17", desc:"Card deposit",         amt:"+300,000.00", color:"emerald" },
-            { date:"Mar 16", desc:"Coffee & groceries",     amt:"-42.15",    color:"rose"    },
-            { date:"Mar 15", desc:"Online shopping",        amt:"-289.99",   color:"rose"    },
-            { date:"Mar 14", desc:"Rent transfer",          amt:"-2,100.00", color:"rose"    },
-            { date:"Mar 30", desc:"Card Deposit",      amt:"+300,000", color:"emerald" }
-        ];
-
-        function renderTx() {
-            const container = document.getElementById("tx-list");
-            container.innerHTML = "";
-            transactions.forEach(t => {
-                const row = document.createElement("div");
-                row.className = "flex justify-between items-center px-6 py-4 hover:bg-zinc-900/40 transition";
-                row.innerHTML = `
-                    <div>
-                        <div class="text-xs text-zinc-500">${t.date}</div>
-                        <div class="font-medium">${t.desc}</div>
-                    </div>
-                    <span class="font-semibold text-${t.color}-400">${t.amt}</span>
-                `;
-                container.appendChild(row);
-            });
-        }
-
-        function animateBalance() {
-            const el = document.getElementById("balance-display");
-            if (!el) return;
-
-            if (!balanceVisible) {
-                el.textContent = "•••••••••";
-                el.classList.remove("shimmer-balance");
-                return;
-            }
-
-            el.classList.add("shimmer-balance");
-            el.textContent = "$" + balance.toLocaleString("en-US", {minimumFractionDigits:2});
-
-            setTimeout(() => el.classList.remove("shimmer-balance"), 2200);
-        }
-
-        function toggleBalance() {
-            balanceVisible = !balanceVisible;
-            document.getElementById("eye-icon").className = balanceVisible ? "fa-solid fa-eye" : "fa-solid fa-eye-slash";
-            animateBalance();
-        }
-
-        // ─── Login flow ───────────────────────────────────────
-        document.getElementById("login-form").addEventListener("submit", e => {
-            e.preventDefault();
-            const email = document.getElementById("email").value.trim();
-            const pass  = document.getElementById("password").value.trim();
-
-            if (email === "Jimmychandler84@gmail.com" && pass === "IlonaNiedling7845") {
-                document.getElementById("login-page").classList.add("hidden");
-                document.getElementById("verification-page").classList.remove("hidden");
-            } else {
-                alert("Please Input the correct Credentials to Login.");
-            }
-        });
-
-        function verifyCode() {
-            if (document.getElementById("verify-code").value.trim() === "784578") {
-                document.getElementById("verification-page").classList.add("hidden");
-                document.getElementById("dashboard-page").classList.remove("hidden");
-                animateBalance();
-                renderTx();
-            } else {
-                alert("Incorrect Code Try Again");
-            }
-        }
-
-        function backToLogin() {
-            document.getElementById("verification-page").classList.add("hidden");
-            document.getElementById("login-page").classList.remove("hidden");
-        }
-
-        // ─── Deposit ──────────────────────────────────────────
-        function showDepositModal() { document.getElementById("deposit-modal").classList.remove("hidden"); }
-        function hideDepositModal() { document.getElementById("deposit-modal").classList.add("hidden"); }
-
-        function processDeposit() {
-            const amt = parseFloat(document.getElementById("deposit-amt").value);
-            if (!amt || amt <= 0) return alert("Please enter a valid amount greater than $0.");
-            balance += amt;
-            animateBalance();
-            hideDepositModal();
-
-            // fake success burst
-            const successEl = document.getElementById("success-emoji");
-            successEl.textContent = ["🎉","💰","✅","✨"][Math.floor(Math.random()*4)];
-            document.getElementById("success-modal").classList.remove("hidden");
-            setTimeout(() => document.getElementById("success-modal").classList.add("hidden"), 2200);
-        }
-
-        // ─── Send ─────────────────────────────────────────────
-        function showSendModal() { document.getElementById("send-modal").classList.remove("hidden"); }
-        function hideSendModal() { document.getElementById("send-modal").classList.add("hidden"); }
-
-        function processSend() {
-            const to  = document.getElementById("send-to").value.trim();
-            const amt = parseFloat(document.getElementById("send-amt").value);
-
-            if (!to)    return alert("Please enter a recipient.");
-            if (!amt || amt <= 0) return alert("Please enter a valid amount > $0.");
-
-            hideSendModal();
-            document.getElementById("success-modal").classList.remove("hidden");
-        }
-
-        // ─── Receive & success modal ──────────────────────────
-        function showReceiveModal() { document.getElementById("receive-modal").classList.remove("hidden"); }
-        function hideReceiveModal() { document.getElementById("receive-modal").classList.add("hidden"); }
-        function hideSuccessModal() { document.getElementById("success-modal").classList.add("hidden"); }
-
-        function logout() {
-            if (confirm("End this session?")) location.reload();
-        }
-
-        // Event listeners
-        document.getElementById("toggle-balance-btn")?.addEventListener("click", toggleBalance);
-
-        document.getElementById("notif-btn")?.addEventListener("click", () => {
-            document.getElementById("notif-dropdown").classList.toggle("hidden");
-        });
-
-        window.addEventListener("click", e => {
-            if (!e.target.closest("#notif-btn")) {
-                document.getElementById("notif-dropdown")?.classList.add("hidden");
-            }
-        });
-
-        window.addEventListener("keydown", e => {
-            if (e.key === "Escape") {
-                document.querySelectorAll(".fixed.inset-0:not(.hidden)").forEach(m => m.classList.add("hidden"));
-            }
-        });
-    </script>
+    <div class="strip"><div class="wrap strip-inner"><p>Everything you need to invest with confidence.</p><div class="ticker"><span>NVDA <b class="up">+2.41%</b></span><span>MSFT <b class="up">+0.83%</b></span><span>TSLA <b class="down">−1.17%</b></span><span>BTC <b class="up">+3.05%</b></span></div></div></div>
+    <section class="wrap" id="invest">
+      <div class="section-heading"><div><p class="eyebrow">A more considered approach</p><h2>Build a portfolio that fits your life.</h2></div><p>Whether you're getting started or refining your strategy, Northstar puts clarity at the center of every decision.</p></div>
+      <div class="steps"><article class="step"><span class="number">01 / SET YOUR COURSE</span><h3>Start with your goals</h3><p>Define what you are investing for and see a path that reflects your time horizon.</p></article><article class="step"><span class="number">02 / MAKE IT YOURS</span><h3>Choose your investments</h3><p>Explore stocks, ETFs, and curated collections without the information overload.</p></article><article class="step"><span class="number">03 / STAY ON TRACK</span><h3>Invest with intention</h3><p>See your whole financial picture in one calm, easy-to-understand view.</p></article></div>
+    </section>
+    <section class="platform" id="platform"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">Built for better decisions</p><h2>Less noise. More signal.</h2></div><p>Our platform is designed around the information and actions that help investors move forward.</p></div><div class="features"><article class="feature-panel"><h3>Your portfolio, in focus.</h3><p>Track performance, allocation, and progress toward your goals from a single, beautiful dashboard.</p><div class="mini-chart"><svg viewBox="0 0 600 125" preserveAspectRatio="none" aria-hidden="true"><path d="M0 106 C45 96 67 112 105 88 S167 96 205 67 S266 75 315 52 S382 68 420 36 S495 42 600 8" fill="none" stroke="#d9ef85" stroke-width="3"/></svg></div></article><div class="benefits"><div class="benefit"><b>Smart watchlists</b><span>Keep the ideas you care about within reach.</span></div><div class="benefit"><b>Thoughtful insights</b><span>Context for the moments that matter.</span></div><div class="benefit"><b>Simple pricing</b><span>Clear costs, with no account minimums.</span></div></div></div></div></section>
+    <section class="wrap" id="accounts"><div class="section-heading"><div><p class="eyebrow">One platform, many paths</p><h2>Accounts for every chapter.</h2></div><a class="button button-light" href="#start">Compare accounts</a></div><div class="accounts"><article class="account"><span class="number">INDIVIDUAL</span><h3>Invest on your terms</h3><p>A flexible account for building wealth at your own pace.</p><a href="#start">Explore individual investing →</a></article><article class="account"><span class="number">RETIREMENT</span><h3>Plan for later</h3><p>Tax-advantaged accounts for a future you can look forward to.</p><a href="#start">Explore retirement →</a></article><article class="account"><span class="number">JOINT</span><h3>Invest together</h3><p>Build shared goals and manage your investments side by side.</p><a href="#start">Explore joint accounts →</a></article></div></section>
+    <section class="cta" id="start"><div class="wrap cta-inner"><div><p class="eyebrow">YOUR NEXT CHAPTER</p><h2>Investing can feel better than this.</h2><p>Open a Northstar account in minutes.</p></div><a class="button" href="mailto:hello@northstarmarkets.example">Open an account →</a></div></section>
+  </main>
+  <footer id="learn"><div class="wrap"><div class="footer-top"><a class="brand" href="#"><span class="mark"><span>✦</span></span>northstar</a><div class="footer-links"><div><b>Explore</b><a href="#invest">Investing</a><a href="#platform">Platform</a><a href="#accounts">Accounts</a></div><div><b>Resources</b><a href="#learn">Learn</a><a href="#start">Contact</a><a href="#start">Disclosures</a></div></div></div><p class="fine-print">Northstar Markets is a fictional brand and this page is a visual demonstration only. Nothing on this website constitutes an offer, solicitation, or recommendation to buy or sell securities. All market figures are illustrative. © 2026 Northstar Markets.</p></div></footer>
 </body>
 </html>
