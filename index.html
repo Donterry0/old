@@ -221,7 +221,6 @@ tr:hover td{background:var(--bg3)}
     <button class="active" onclick="showAuthTab('login')">Sign In</button>
     <button onclick="showAuthTab('register')">Create Account</button>
   </div>
-  <div class="demo-banner">⚡ <b>Demo Platform</b> — This is a simulated trading environment. No real funds are used.</div>
 
   <!-- Login form -->
   <form id="loginForm" onsubmit="handleLogin(event)">
@@ -230,8 +229,8 @@ tr:hover td{background:var(--bg3)}
     <div class="error-msg" id="loginError"></div>
     <button class="btn btn-primary mt-16" type="submit">Sign In</button>
     <div class="auth-footer">
-      <a onclick="handleDemoLogin()">Quick Demo Login</a> · <a onclick="showAuthTab('register')">Create Account</a><br>
-      <a onclick="alert('Demo — password reset unavailable.')">Forgot password?</a>
+      <a onclick="showAuthTab('register')">Create Account</a><br>
+      <a onclick="alert('Password reset is not available at this time.')">Forgot password?</a>
     </div>
   </form>
 
@@ -246,7 +245,7 @@ tr:hover td{background:var(--bg3)}
   </form>
 
   <div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--border)">
-    <button class="btn btn-outline btn-sm" style="width:100%" onclick="handleAdminLogin()">🔧 Demo Admin Panel</button>
+    <button class="btn btn-outline btn-sm" style="width:100%" onclick="handleAdminLogin()">🔧 Admin Panel</button>
   </div>
 </div>
 </div>
@@ -267,7 +266,7 @@ tr:hover td{background:var(--bg3)}
     <div class="nav-item" data-page="profile" onclick="navigate('profile')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Profile</div>
     <div class="nav-item" data-page="settings" onclick="navigate('settings')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Settings</div>
   </div>
-  <div class="sidebar-footer">BitNova Demo v1.0<br>No real trading</div>
+  <div class="sidebar-footer">BitNova v1.0</div>
 </aside>
 
 <!-- Top bar -->
@@ -279,7 +278,7 @@ tr:hover td{background:var(--bg3)}
   </div>
   <div class="topbar-right">
     <button class="topbar-btn" onclick="toggleNotifications()" id="notifBtn">🔔<span class="badge" id="notifBadge" style="display:none">0</span></button>
-    <div class="user-pill" onclick="navigate('profile')"><div class="user-avatar" id="topAvatar">D</div><span id="topName">Demo</span></div>
+    <div class="user-pill" onclick="navigate('profile')"><div class="user-avatar" id="topAvatar">D</div><span id="topName">User</span></div>
   </div>
 </header>
 
@@ -288,9 +287,9 @@ tr:hover td{background:var(--bg3)}
 <!-- DASHBOARD -->
 <div class="page active" id="page-dashboard">
   <h1 class="page-title">Dashboard</h1>
-  <p class="page-sub">Welcome back — here's your demo account overview.</p>
+  <p class="page-sub">Welcome back — here's your account overview.</p>
   <div class="stat-grid">
-    <div class="stat-card"><div class="stat-label">Total Balance</div><div class="stat-value" id="dashBalance">$25,480.00</div><div class="stat-sub">Demo funds</div></div>
+    <div class="stat-card"><div class="stat-label">Total Balance</div><div class="stat-value" id="dashBalance">$25,480.00</div></div>
     <div class="stat-card"><div class="stat-label">Available Balance</div><div class="stat-value" id="dashAvailable">$25,480.00</div></div>
     <div class="stat-card"><div class="stat-label">Today's P&L</div><div class="stat-value positive" id="dashPnl">+$342.18</div></div>
     <div class="stat-card"><div class="stat-label">Total Deposits</div><div class="stat-value" id="dashDeposits">$0.00</div></div>
@@ -313,7 +312,7 @@ tr:hover td{background:var(--bg3)}
 <!-- MARKETS -->
 <div class="page" id="page-markets">
   <h1 class="page-title">Crypto Markets</h1>
-  <p class="page-sub">Demo prices — not live market data.</p>
+  <p class="page-sub">Market prices.</p>
   <div class="card">
     <div class="table-wrap"><table><thead><tr><th>Coin</th><th>Price</th><th>24h Change</th><th>Market Cap</th><th>Actions</th></tr></thead><tbody id="marketBody"></tbody></table></div>
   </div>
@@ -321,7 +320,7 @@ tr:hover td{background:var(--bg3)}
 
 <!-- TRADE -->
 <div class="page" id="page-trade">
-  <h1 class="page-title">Demo Trading</h1>
+  <h1 class="page-title">Trading</h1>
   <p class="page-sub">Simulated orders — no real funds are used.</p>
   <div class="grid-2">
     <div class="chart-container" style="margin:0">
@@ -340,7 +339,7 @@ tr:hover td{background:var(--bg3)}
         <div class="flex justify-between mt-16" style="font-size:13px"><span style="color:var(--muted)">Order Value</span><span id="tradeVal" style="font-weight:700">$0.00</span></div>
       </div>
       <button class="btn btn-success" id="tradeBtn" onclick="executeTrade()">Buy</button>
-      <p style="text-align:center;font-size:11px;color:var(--dim);margin-top:10px">Demo trade — no real funds used</p>
+      <p style="text-align:center;font-size:11px;color:var(--dim);margin-top:10px"></p>
     </div>
   </div>
 </div>
@@ -348,7 +347,7 @@ tr:hover td{background:var(--bg3)}
 <!-- PORTFOLIO -->
 <div class="page" id="page-portfolio">
   <h1 class="page-title">Portfolio</h1>
-  <p class="page-sub">Your demo crypto holdings.</p>
+  <p class="page-sub">Your crypto holdings.</p>
   <div class="stat-grid">
     <div class="stat-card"><div class="stat-label">Total Portfolio Value</div><div class="stat-value" id="portTotal">$0.00</div></div>
     <div class="stat-card"><div class="stat-label">Available Cash</div><div class="stat-value" id="portCash">$25,480.00</div></div>
@@ -360,7 +359,7 @@ tr:hover td{background:var(--bg3)}
 <!-- TRANSACTIONS -->
 <div class="page" id="page-transactions">
   <h1 class="page-title">Transaction History</h1>
-  <p class="page-sub">All demo account activity.</p>
+  <p class="page-sub">All account activity.</p>
   <div class="filters" id="txFilters">
     <button class="filter-btn active" data-filter="all" onclick="filterTx('all',this)">All</button>
     <button class="filter-btn" data-filter="deposit" onclick="filterTx('deposit',this)">Deposits</button>
@@ -374,40 +373,38 @@ tr:hover td{background:var(--bg3)}
 <!-- DEPOSIT -->
 <div class="page" id="page-deposit">
   <h1 class="page-title">Deposit</h1>
-  <p class="page-sub">Add demo funds to your account.</p>
-  <div class="demo-banner">⚡ Demo transaction — no real funds are transferred.</div>
+  <p class="page-sub">Add funds to your account.</p>
   <div class="card" style="max-width:500px">
     <div class="form-group"><label>Amount (USD)</label><input type="number" id="depAmount" placeholder="e.g. 1000" min="1" step="0.01"></div>
     <div class="form-group"><label>Payment Method</label>
       <select id="depMethod"><option>Bank Transfer</option><option>Credit/Debit Card</option><option>Crypto</option></select>
     </div>
-    <button class="btn btn-success mt-16" onclick="submitDeposit()">Submit Demo Deposit</button>
+    <button class="btn btn-success mt-16" onclick="submitDeposit()">Submit Deposit</button>
   </div>
 </div>
 
 <!-- WITHDRAW -->
 <div class="page" id="page-withdraw">
   <h1 class="page-title">Withdraw</h1>
-  <p class="page-sub">Withdraw demo funds from your account.</p>
-  <div class="demo-banner">⚡ Demo withdrawal — no real funds are transferred.</div>
+  <p class="page-sub">Withdraw funds from your account.</p>
   <div class="card" style="max-width:500px">
     <div class="form-group"><label>Amount (USD)</label><input type="number" id="wdAmount" placeholder="e.g. 500" min="1" step="0.01"></div>
     <div class="form-group"><label>Withdrawal Method</label>
       <select id="wdMethod"><option>Bank Transfer</option><option>Crypto Wallet</option></select>
     </div>
     <div class="form-group"><label>Destination</label><input type="text" id="wdDest" placeholder="Account/wallet address"></div>
-    <button class="btn btn-danger mt-16" onclick="submitWithdrawal()">Submit Demo Withdrawal</button>
+    <button class="btn btn-danger mt-16" onclick="submitWithdrawal()">Submit Withdrawal</button>
   </div>
 </div>
 
 <!-- PROFILE -->
 <div class="page" id="page-profile">
   <h1 class="page-title">Profile</h1>
-  <p class="page-sub">Your demo account information.</p>
+  <p class="page-sub">Your account information.</p>
   <div class="card">
     <div class="profile-header">
       <div class="profile-avatar" id="profileAvatar">D</div>
-      <div class="profile-info"><h2 id="profileName">Demo User</h2><p id="profileEmail">demo@bitnova.com</p><span class="tag tag-amber" style="margin-top:6px">⚠ KYC Not Verified</span></div>
+      <div class="profile-info"><h2 id="profileName">User</h2><p id="profileEmail">user@bitnova.com</p><span class="tag tag-amber" style="margin-top:6px">⚠ KYC Not Verified</span></div>
     </div>
     <div class="grid-2" style="gap:14px">
       <div class="form-group"><label>Full Name</label><input id="profNameInput" placeholder="Your name"></div>
@@ -422,35 +419,35 @@ tr:hover td{background:var(--bg3)}
 <!-- SETTINGS -->
 <div class="page" id="page-settings">
   <h1 class="page-title">Settings</h1>
-  <p class="page-sub">Customize your demo experience.</p>
+  <p class="page-sub">Customize your experience.</p>
   <div class="card">
     <div class="setting-row"><label>Dark Mode</label><div class="toggle on" id="toggleTheme" onclick="toggleTheme()"></div></div>
     <div class="setting-row"><label>Currency</label><select id="settingsCurrency" onchange="saveSetting('currency',this.value)" style="width:auto"><option value="USD">USD ($)</option><option value="EUR">EUR (€)</option><option value="GBP">GBP (£)</option><option value="NGN">NGN (₦)</option><option value="JPY">JPY (¥)</option></select></div>
     <div class="setting-row"><label>Email Notifications</label><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
     <div class="setting-row"><label>Trade Notifications</label><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
-    <div class="setting-row"><label>Two-Factor Auth</label><span class="tag tag-amber">Not Available (Demo)</span></div>
+    <div class="setting-row"><label>Two-Factor Auth</label><span class="tag tag-amber">Not Available</span></div>
     <button class="btn btn-danger mt-16" style="max-width:200px" onclick="handleLogout()">Sign Out</button>
   </div>
 </div>
 
 <!-- ADMIN -->
 <div class="page" id="page-admin">
-  <h1 class="page-title">🔧 Demo Admin Panel</h1>
+  <h1 class="page-title">🔧 Admin Panel</h1>
   <p class="page-sub">Simulated admin view — no real user data.</p>
   <div class="stat-grid">
-    <div class="stat-card admin-stat"><div class="stat-label">Demo Users</div><div class="stat-value" id="adminUsers">1</div></div>
-    <div class="stat-card admin-stat"><div class="stat-label">Total Demo Deposits</div><div class="stat-value" id="adminDeposits">$0</div></div>
-    <div class="stat-card admin-stat"><div class="stat-label">Total Demo Withdrawals</div><div class="stat-value" id="adminWithdrawals">$0</div></div>
-    <div class="stat-card admin-stat"><div class="stat-label">Demo Trading Volume</div><div class="stat-value" id="adminVolume">$0</div></div>
+    <div class="stat-card admin-stat"><div class="stat-label">Users</div><div class="stat-value" id="adminUsers">1</div></div>
+    <div class="stat-card admin-stat"><div class="stat-label">Total Deposits</div><div class="stat-value" id="adminDeposits">$0</div></div>
+    <div class="stat-card admin-stat"><div class="stat-label">Total Withdrawals</div><div class="stat-value" id="adminWithdrawals">$0</div></div>
+    <div class="stat-card admin-stat"><div class="stat-label">Trading Volume</div><div class="stat-value" id="adminVolume">$0</div></div>
   </div>
   <div class="card mb-16">
-    <div class="card-title mb-16">Adjust Demo Balance</div>
+    <div class="card-title mb-16">Adjust Balance</div>
     <div class="flex gap-8 flex-wrap">
       <input type="number" id="adminBalanceInput" placeholder="New balance" style="width:200px">
       <button class="btn btn-primary btn-sm" onclick="adminSetBalance()">Set Balance</button>
     </div>
   </div>
-  <div class="card"><div class="card-title mb-16">All Demo Transactions</div><div class="table-wrap"><table><thead><tr><th>TX ID</th><th>Date</th><th>Type</th><th>Amount</th><th>Status</th><th>Action</th></tr></thead><tbody id="adminTxBody"></tbody></table></div></div>
+  <div class="card"><div class="card-title mb-16">All Transactions</div><div class="table-wrap"><table><thead><tr><th>TX ID</th><th>Date</th><th>Type</th><th>Amount</th><th>Status</th><th>Action</th></tr></thead><tbody id="adminTxBody"></tbody></table></div></div>
 </div>
 
 </div><!-- /main -->
@@ -534,8 +531,8 @@ function handleRegister(e){
   saveState(); enterApp();
 }
 
-function handleDemoLogin(){
-  if(!S.user) S.user = {name:'Demo User',email:'demo@bitnova.com',id:'BN-'+genId(6),created:new Date().toISOString().split('T')[0]};
+function handleQuickLogin(){
+  if(!S.user) S.user = {name:'User',email:'user@bitnova.com',id:'BN-'+genId(6),created:new Date().toISOString().split('T')[0]};
   saveState(); enterApp();
 }
 
@@ -560,7 +557,7 @@ function enterApp(){
   document.getElementById('topName').textContent = u.name||'User';
   applyTheme(S.settings.theme);
   navigate('dashboard');
-  addNotification('Welcome back to BitNova (Demo)!');
+  addNotification('Welcome back to BitNova!');
 }
 
 /* ========== NAVIGATION ========== */
@@ -677,7 +674,7 @@ function executeTrade(){
   if(!coin||!amount||amount<=0){toast('Enter a valid amount','error');return}
 
   if(currentTradeType==='buy'){
-    if(amount > S.balance){toast('Insufficient demo balance','error');return}
+    if(amount > S.balance){toast('Insufficient balance','error');return}
     S.balance -= amount;
     const qty = amount / coin.price;
     S.portfolio[coin.id] = (S.portfolio[coin.id]||0) + qty;
@@ -767,9 +764,9 @@ function submitDeposit(){
   S.deposits += amount;
   const tx = {id:'TX-'+genId(8),date:fmtDate(),type:'deposit',asset:'USD',amount,status:'completed'};
   S.transactions.push(tx);
-  addNotification(`Demo deposit of $${fmt(amount)} received`);
+  addNotification(`Deposit of $${fmt(amount)} received`);
   saveState();
-  toast(`Demo deposit of $${fmt(amount)} successful. Ref: ${tx.id}`,'success');
+  toast(`Deposit of $${fmt(amount)} successful. Ref: ${tx.id}`,'success');
   document.getElementById('depAmount').value='';
 }
 
@@ -778,15 +775,15 @@ function submitWithdrawal(){
   const amount = parseFloat(document.getElementById('wdAmount').value);
   const dest = document.getElementById('wdDest').value.trim();
   if(!amount||amount<=0){toast('Enter a valid amount','error');return}
-  if(amount>S.balance){toast('Amount exceeds available demo balance','error');return}
+  if(amount>S.balance){toast('Amount exceeds available balance','error');return}
   if(!dest){toast('Enter a destination','error');return}
   S.balance -= amount;
   S.withdrawals += amount;
   const tx = {id:'TX-'+genId(8),date:fmtDate(),type:'withdrawal',asset:'USD',amount,status:'pending'};
   S.transactions.push(tx);
-  addNotification(`Demo withdrawal of $${fmt(amount)} submitted`);
+  addNotification(`Withdrawal of $${fmt(amount)} submitted`);
   saveState();
-  toast(`Demo withdrawal submitted. Ref: ${tx.id}`,'success');
+  toast(`Withdrawal submitted. Ref: ${tx.id}`,'success');
   document.getElementById('wdAmount').value='';
   document.getElementById('wdDest').value='';
 }
