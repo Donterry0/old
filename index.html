@@ -1,106 +1,46 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Northstar Markets provides a clear, modern brokerage experience.">
-  <title>Northstar Markets | Invest with clarity</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Cyclone is a local-only financial dashboard demonstration.">
+  <title>Cyclone — Demo dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root { --ink:#10231f; --green:#0a6b53; --lime:#d9ef85; --cream:#f5f4ed; --sand:#e8e4d8; --muted:#60716c; --line:#d7d9cf; }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; color:var(--ink); background:var(--cream); font-family:Manrope,Arial,sans-serif; }
-    a { color:inherit; text-decoration:none; }
-    button { font:inherit; cursor:pointer; }
-    .wrap { width:min(1160px,calc(100% - 40px)); margin:auto; }
-    .eyebrow { margin:0 0 14px; color:var(--green); font:700 11px "DM Mono",monospace; letter-spacing:.12em; text-transform:uppercase; }
-    .nav { height:78px; display:flex; justify-content:space-between; align-items:center; }
-    .brand { display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:-.05em; font-size:21px; }
-    .mark { display:grid; place-items:center; width:31px; height:31px; color:white; background:var(--green); border-radius:50% 50% 50% 8%; transform:rotate(-18deg); }
-    .mark span { transform:rotate(18deg); }
-    .nav-links { display:flex; gap:28px; align-items:center; font-size:14px; font-weight:600; }
-    .button { display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--green); border-radius:100px; padding:12px 20px; background:var(--green); color:white; font-size:14px; font-weight:700; transition:.2s; }
-    .button:hover { background:#07513f; transform:translateY(-1px); }
-    .button-light { background:transparent; color:var(--ink); border-color:#aeb8af; }
-    .button-light:hover { color:white; border-color:var(--green); }
-    .hero { padding:66px 0 82px; display:grid; grid-template-columns:1.02fr .98fr; gap:58px; align-items:center; }
-    h1 { max-width:610px; margin:0; font-size:clamp(48px,6vw,80px); letter-spacing:-.075em; line-height:.98; }
-    .hero h1 em { color:var(--green); font-style:normal; }
-    .intro { max-width:500px; margin:28px 0; color:var(--muted); font-size:18px; line-height:1.7; }
-    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; }
-    .disclaimer { margin:21px 0 0; color:#6f7772; font-size:11px; line-height:1.5; }
-    .market-card { position:relative; overflow:hidden; padding:27px; min-height:420px; border-radius:22px; background:var(--ink); color:white; box-shadow:20px 25px 0 var(--lime); }
-    .market-card:before { content:""; position:absolute; width:300px; height:300px; border:1px solid #719286; border-radius:50%; right:-105px; top:-105px; }
-    .market-card:after { content:""; position:absolute; width:220px; height:220px; border:1px solid #719286; border-radius:50%; right:-65px; top:-65px; }
-    .card-head, .quote, .chart, .market-footer { position:relative; z-index:1; }
-    .card-head { display:flex; justify-content:space-between; color:#c2d0ca; font:12px "DM Mono",monospace; }
-    .status { color:var(--lime); } .quote { margin-top:58px; }
-    .quote small { color:#b4c2bc; font-size:13px; } .quote strong { display:block; margin-top:5px; font-size:55px; letter-spacing:-.06em; }
-    .gain { display:inline-block; margin-top:8px; padding:5px 9px; border-radius:6px; background:#17493d; color:var(--lime); font:12px "DM Mono",monospace; }
-    .chart { height:110px; margin-top:32px; }
-    .chart svg { width:100%; height:100%; overflow:visible; }
-    .market-footer { display:flex; justify-content:space-between; padding-top:16px; border-top:1px solid #385047; color:#c2d0ca; font-size:12px; }
-    .strip { border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:#fffefa; }
-    .strip-inner { min-height:83px; display:flex; justify-content:space-between; align-items:center; gap:20px; }
-    .strip p { margin:0; max-width:430px; font-size:13px; font-weight:700; }
-    .ticker { display:flex; gap:25px; overflow:auto; font:12px "DM Mono",monospace; white-space:nowrap; }
-    .up { color:var(--green); } .down { color:#b2483e; }
-    section { padding:106px 0; }
-    .section-heading { display:flex; justify-content:space-between; align-items:end; gap:25px; margin-bottom:42px; }
-    h2 { max-width:640px; margin:0; font-size:clamp(35px,4.5vw,57px); line-height:1.06; letter-spacing:-.06em; }
-    .section-heading > p:last-child { max-width:330px; margin:0; color:var(--muted); font-size:14px; line-height:1.65; }
-    .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:17px; }
-    .step { min-height:240px; padding:27px; border:1px solid var(--line); border-radius:15px; background:#fbfaf5; }
-    .number { color:var(--green); font:13px "DM Mono",monospace; }
-    .step h3 { margin:53px 0 9px; font-size:21px; letter-spacing:-.04em; }.step p { margin:0; color:var(--muted); font-size:14px; line-height:1.55; }
-    .platform { background:var(--ink); color:white; }
-    .platform .eyebrow { color:var(--lime); }.platform .section-heading > p:last-child { color:#b9c6c0; }
-    .features { display:grid; grid-template-columns:1.22fr .78fr; gap:17px; }
-    .feature-panel { padding:34px; border-radius:17px; background:#1b332d; min-height:330px; }
-    .feature-panel h3 { margin:0; font-size:30px; letter-spacing:-.05em; }.feature-panel p { max-width:380px; color:#b9c6c0; line-height:1.65; font-size:14px; }
-    .mini-chart { height:125px; margin-top:45px; border-bottom:1px solid #456157; background:repeating-linear-gradient(0deg,transparent 0 30px,#314941 31px); }
-    .mini-chart svg { width:100%; height:100%; }
-    .benefits { display:grid; gap:1px; border-radius:17px; overflow:hidden; background:#355149; }.benefit { padding:22px; background:#28433b; }.benefit b { display:block; margin-bottom:5px; font-size:15px; }.benefit span { color:#b9c6c0; font-size:12px; }
-    .accounts { display:grid; grid-template-columns:repeat(3,1fr); gap:17px; }.account { position:relative; overflow:hidden; padding:28px; min-height:275px; border-radius:15px; background:var(--sand); }.account:nth-child(2) { background:var(--lime); }.account:nth-child(3) { color:white; background:var(--green); }.account h3 { margin:55px 0 10px; font-size:24px; letter-spacing:-.05em; }.account p { max-width:260px; margin:0; font-size:13px; line-height:1.6; opacity:.76; }.account a { display:inline-block; margin-top:20px; font-size:13px; font-weight:800; border-bottom:1px solid currentColor; }
-    .cta { padding:72px 0; background:var(--lime); }.cta-inner { display:flex; justify-content:space-between; align-items:center; gap:40px; }.cta h2 { max-width:600px; }.cta p { color:#395849; font-size:14px; }.cta .button { background:var(--ink); border-color:var(--ink); }
-    footer { padding:48px 0 30px; background:var(--ink); color:white; }.footer-top { display:flex; justify-content:space-between; gap:40px; padding-bottom:42px; border-bottom:1px solid #385047; }.footer-links { display:flex; gap:42px; }.footer-links div { display:grid; gap:12px; font-size:13px; color:#bdc9c4; }.footer-links b { color:white; }.fine-print { margin:25px 0 0; color:#8ba098; font-size:10px; line-height:1.65; }
-    @media (max-width:760px) { .nav-links { display:none; }.hero,.features { grid-template-columns:1fr; gap:38px; }.hero { padding-top:38px; }.market-card { min-height:350px; }.strip-inner,.section-heading,.cta-inner,.footer-top { align-items:flex-start; flex-direction:column; }.steps,.accounts { grid-template-columns:1fr; }.section-heading { margin-bottom:30px; } section { padding:70px 0; }.footer-links { gap:25px; flex-wrap:wrap; } }
+    :root{--bg:#07100f;--panel:#0d1b19;--panel2:#122725;--line:#24403b;--text:#eff6f2;--muted:#90a69e;--mint:#bdf276;--green:#28b887;--amber:#ffd274;--red:#f17873}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Manrope,Arial,sans-serif}button,input{font:inherit}button{cursor:pointer}#dashboard{display:none}.login{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 85% 8%,#1b443b 0,transparent 28%),var(--bg)}.login-card{width:min(100%,440px);padding:38px;border:1px solid var(--line);border-radius:24px;background:rgba(13,27,25,.92);box-shadow:0 24px 70px #0008}.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;letter-spacing:-.06em}.logo{display:grid;place-items:center;width:32px;height:32px;background:var(--mint);color:#10241e;border-radius:50% 50% 9px 50%;font-size:19px;transform:rotate(-18deg)}.logo span{transform:rotate(18deg)}.tag{margin:28px 0 8px;color:var(--mint);font:11px "DM Mono",monospace;letter-spacing:.12em;text-transform:uppercase}.login h1{margin:0;font-size:34px;letter-spacing:-.06em}.login p{color:var(--muted);font-size:14px;line-height:1.6}.demo-note{margin:23px 0;padding:12px;border:1px solid #7b6639;background:#342d1d;color:#f7dfa5;border-radius:10px;font-size:12px;line-height:1.5}.field{display:grid;gap:7px;margin-top:17px;color:#cad9d2;font-size:13px;font-weight:700}.field input{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;background:#081211;color:white;outline:none}.field input:focus{border-color:var(--mint)}.submit{width:100%;margin-top:25px;padding:14px;border:0;border-radius:10px;background:var(--mint);color:#11231e;font-weight:800}.error{min-height:19px;margin:12px 0 0;color:var(--red);font-size:12px}.hint{color:#70867e!important;font:11px "DM Mono",monospace}.app{min-height:100vh}.sidebar{position:fixed;width:238px;inset:0 auto 0 0;padding:28px 17px;border-right:1px solid var(--line);background:#091514}.nav{display:grid;gap:4px;margin-top:46px}.nav a{padding:11px 13px;border-radius:9px;color:var(--muted);font-size:13px;font-weight:700;text-decoration:none}.nav a.active,.nav a:hover{background:#18332e;color:var(--mint)}.sidebar-foot{position:absolute;bottom:27px;color:#668078;font-size:11px}.content{margin-left:238px;padding:0 38px 42px}.top{height:76px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}.top small{color:var(--muted);font:11px "DM Mono",monospace}.user{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:700}.avatar{display:grid;place-items:center;width:30px;height:30px;background:#224940;border-radius:50%;color:var(--mint)}.warning{display:flex;gap:12px;align-items:center;margin:25px 0;padding:15px 17px;border:1px solid #806a36;border-radius:12px;background:#322c1c;color:#ffe39b;font-size:13px}.warning b{color:white}.head{display:flex;justify-content:space-between;align-items:end;margin:31px 0 26px}.head h1{margin:0;font-size:32px;letter-spacing:-.06em}.head p{margin:4px 0;color:var(--muted);font-size:13px}.period{border:1px solid var(--line);border-radius:8px;padding:9px 11px;color:var(--muted);background:var(--panel);font-size:12px}.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.card{padding:23px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}.label{color:var(--muted);font:11px "DM Mono",monospace;letter-spacing:.08em}.value{margin:11px 0 2px;font-size:35px;font-weight:800;letter-spacing:-.06em}.change{color:var(--mint);font:12px "DM Mono",monospace}.chart{height:165px;margin-top:22px;border-bottom:1px solid var(--line);background:repeating-linear-gradient(0deg,transparent 0 40px,#17312d 41px)}.chart svg{width:100%;height:100%}.allocation{display:grid;grid-template-columns:108px 1fr;gap:17px;align-items:center}.donut{width:108px;height:108px;border-radius:50%;background:conic-gradient(var(--mint) 0 43%,var(--green) 43% 69%,#548a7a 69% 86%,#bf9b53 86%);position:relative}.donut:after{content:"DEMO";position:absolute;inset:24px;display:grid;place-items:center;background:var(--panel);border-radius:50%;font:10px "DM Mono",monospace;color:var(--muted)}.legend{display:grid;gap:10px;font-size:12px}.legend span{display:flex;justify-content:space-between;color:var(--muted)}.dot{display:inline-block;width:8px;height:8px;margin-right:7px;border-radius:50%;background:var(--mint)}.markets{margin-top:18px}.markets h2{margin:0 0 15px;font-size:18px;letter-spacing:-.04em}.table{width:100%;border-collapse:collapse;font-size:13px}.table th{text-align:left;padding:0 8px 11px;color:var(--muted);font:10px "DM Mono",monospace;letter-spacing:.06em}.table td{padding:15px 8px;border-top:1px solid var(--line)}.asset{font-weight:800}.asset small{display:block;margin-top:2px;color:var(--muted);font:10px "DM Mono",monospace}.price{font-family:"DM Mono",monospace}.positive{color:var(--mint)}.negative{color:var(--red)}.demo-footer{margin-top:24px;color:#71867f;font-size:11px;line-height:1.5}@media(max-width:800px){.sidebar{position:static;width:auto;padding:18px 22px;border-right:0;border-bottom:1px solid var(--line)}.sidebar .nav,.sidebar-foot{display:none}.content{margin:0;padding:0 20px 30px}.grid{grid-template-columns:1fr}.top{height:63px}.warning{align-items:flex-start}.head{align-items:flex-start;gap:12px;flex-direction:column}.value{font-size:30px}.allocation{grid-template-columns:90px 1fr}.donut{width:90px;height:90px}.donut:after{inset:20px}}
   </style>
 </head>
 <body>
-  <header class="wrap nav">
-    <a class="brand" href="#" aria-label="Northstar Markets home"><span class="mark"><span>✦</span></span>northstar</a>
-    <nav class="nav-links" aria-label="Main navigation"><a href="#invest">Investing</a><a href="#platform">Platform</a><a href="#accounts">Accounts</a></nav>
-    <a class="button button-light" href="#start">Open an account</a>
-  </header>
-  <main>
-    <div class="wrap hero">
-      <div>
-        <p class="eyebrow">Investing, made clear</p>
-        <h1>Make your next move <em>your best one.</em></h1>
-        <p class="intro">A modern brokerage for people building what comes next. Invest with powerful tools, thoughtful guidance, and no unnecessary noise.</p>
-        <div class="hero-actions"><a class="button" href="#start">Start investing <span aria-hidden="true">&nbsp;→</span></a><a class="button button-light" href="#platform">Explore the platform</a></div>
-        <p class="disclaimer">Investing involves risk, including possible loss of principal. This site is for demonstration purposes only and does not offer investment advice.</p>
-      </div>
-      <aside class="market-card" aria-label="Sample market quote">
-        <div class="card-head"><span>MARKET PULSE</span><span class="status">● MARKET OPEN</span></div>
-        <div class="quote"><small>S&amp;P 500</small><strong>5,218.86</strong><span class="gain">+0.64% &nbsp; +33.29</span></div>
-        <div class="chart"><svg viewBox="0 0 450 110" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="fill" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#d9ef85" stop-opacity=".35"/><stop offset="1" stop-color="#d9ef85" stop-opacity="0"/></linearGradient></defs><path d="M0 94 L25 85 48 88 70 76 91 83 114 59 139 65 162 42 186 56 209 37 238 48 262 31 287 39 315 24 342 34 369 14 398 25 422 9 450 16 V110 H0Z" fill="url(#fill)"/><path d="M0 94 L25 85 48 88 70 76 91 83 114 59 139 65 162 42 186 56 209 37 238 48 262 31 287 39 315 24 342 34 369 14 398 25 422 9 450 16" fill="none" stroke="#d9ef85" stroke-width="3"/></svg></div>
-        <div class="market-footer"><span>Updated 4:00 PM ET</span><span>View markets <span aria-hidden="true">→</span></span></div>
-      </aside>
-    </div>
-    <div class="strip"><div class="wrap strip-inner"><p>Everything you need to invest with confidence.</p><div class="ticker"><span>NVDA <b class="up">+2.41%</b></span><span>MSFT <b class="up">+0.83%</b></span><span>TSLA <b class="down">−1.17%</b></span><span>BTC <b class="up">+3.05%</b></span></div></div></div>
-    <section class="wrap" id="invest">
-      <div class="section-heading"><div><p class="eyebrow">A more considered approach</p><h2>Build a portfolio that fits your life.</h2></div><p>Whether you're getting started or refining your strategy, Northstar puts clarity at the center of every decision.</p></div>
-      <div class="steps"><article class="step"><span class="number">01 / SET YOUR COURSE</span><h3>Start with your goals</h3><p>Define what you are investing for and see a path that reflects your time horizon.</p></article><article class="step"><span class="number">02 / MAKE IT YOURS</span><h3>Choose your investments</h3><p>Explore stocks, ETFs, and curated collections without the information overload.</p></article><article class="step"><span class="number">03 / STAY ON TRACK</span><h3>Invest with intention</h3><p>See your whole financial picture in one calm, easy-to-understand view.</p></article></div>
-    </section>
-    <section class="platform" id="platform"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">Built for better decisions</p><h2>Less noise. More signal.</h2></div><p>Our platform is designed around the information and actions that help investors move forward.</p></div><div class="features"><article class="feature-panel"><h3>Your portfolio, in focus.</h3><p>Track performance, allocation, and progress toward your goals from a single, beautiful dashboard.</p><div class="mini-chart"><svg viewBox="0 0 600 125" preserveAspectRatio="none" aria-hidden="true"><path d="M0 106 C45 96 67 112 105 88 S167 96 205 67 S266 75 315 52 S382 68 420 36 S495 42 600 8" fill="none" stroke="#d9ef85" stroke-width="3"/></svg></div></article><div class="benefits"><div class="benefit"><b>Smart watchlists</b><span>Keep the ideas you care about within reach.</span></div><div class="benefit"><b>Thoughtful insights</b><span>Context for the moments that matter.</span></div><div class="benefit"><b>Simple pricing</b><span>Clear costs, with no account minimums.</span></div></div></div></div></section>
-    <section class="wrap" id="accounts"><div class="section-heading"><div><p class="eyebrow">One platform, many paths</p><h2>Accounts for every chapter.</h2></div><a class="button button-light" href="#start">Compare accounts</a></div><div class="accounts"><article class="account"><span class="number">INDIVIDUAL</span><h3>Invest on your terms</h3><p>A flexible account for building wealth at your own pace.</p><a href="#start">Explore individual investing <span aria-hidden="true">→</span></a></article><article class="account"><span class="number">RETIREMENT</span><h3>Plan for later</h3><p>Tax-advantaged accounts for a future you can look forward to.</p><a href="#start">Explore retirement <span aria-hidden="true">→</span></a></article><article class="account"><span class="number">JOINT</span><h3>Invest together</h3><p>Build shared goals and manage your investments side by side.</p><a href="#start">Explore joint accounts <span aria-hidden="true">→</span></a></article></div></section>
-    <section class="cta" id="start"><div class="wrap cta-inner"><div><p class="eyebrow">YOUR NEXT CHAPTER</p><h2>Investing can feel better than this.</h2><p>Open a Northstar account in minutes.</p></div><a class="button" href="mailto:hello@northstarmarkets.example">Open an account <span aria-hidden="true">→</span></a></div></section>
-  </main>
-  <footer id="footer"><div class="wrap"><div class="footer-top"><a class="brand" href="#"><span class="mark"><span>✦</span></span>northstar</a><div class="footer-links"><div><b>Explore</b><a href="#invest">Investing</a><a href="#platform">Platform</a><a href="#accounts">Accounts</a></div><div><b>Resources</b><a href="#platform">Market insights</a><a href="#start">Contact</a><a href="#footer">Disclosures</a></div></div></div><p class="fine-print">Northstar Markets is a fictional brand and this page is a visual demonstration only. Nothing on this website constitutes an offer, solicitation, or recommendation to buy or sell securities. All market figures are illustrative. © 2026 Northstar Markets.</p></div></footer>
+  <section class="login" id="login">
+    <form class="login-card" id="login-form">
+      <div class="brand"><span class="logo"><span>↯</span></span>cyclone</div>
+      <p class="tag">Local demonstration</p><h1>Welcome back.</h1>
+      <p>Sign in to view the fictional Cyclone portfolio dashboard.</p>
+      <div class="demo-note"><b>Demo only.</b> This form runs entirely in your browser; it has no server, does not transmit data, and cannot access real funds.</div>
+      <label class="field">Email <input id="email" name="email" type="email" autocomplete="username" required></label>
+      <label class="field">Password <input id="password" name="password" type="password" autocomplete="current-password" required></label>
+      <button class="submit" type="submit">Enter demo dashboard</button>
+      <p class="error" id="error" role="alert"></p>
+      <p class="hint">Enter any valid-looking email and a password of at least 8 characters.</p>
+    </form>
+  </section>
+  <div id="dashboard" class="app">
+    <aside class="sidebar"><div class="brand"><span class="logo"><span>↯</span></span>cyclone</div><nav class="nav"><a class="active" href="#overview">Overview</a><a href="#markets">Markets</a><a href="#portfolio">Portfolio</a><a href="#activity">Activity</a></nav><div class="sidebar-foot">LOCAL DEMO · NO LIVE TRADING</div></aside>
+    <main class="content">
+      <header class="top"><small>DEMO ENVIRONMENT · DATA IS ILLUSTRATIVE</small><div class="user"><span class="avatar">F</span> Femi <button id="logout" style="border:0;background:none;color:#90a69e">Sign out</button></div></header>
+      <div class="warning"><span aria-hidden="true">⚠</span><span><b>KYC not completed.</b> Identity verification is unavailable in this local demonstration. Trading and transfers are disabled.</span></div>
+      <section id="overview"><div class="head"><div><h1>Good afternoon, Femi.</h1><p>Here is your illustrative portfolio snapshot.</p></div><span class="period">LAST 24 HOURS</span></div>
+      <div class="grid"><article class="card"><div class="label">DEMO PORTFOLIO VALUE</div><div class="value">$24,860.42</div><div class="change">+ $412.68 (1.69%) today</div><div class="chart"><svg viewBox="0 0 600 165" preserveAspectRatio="none" aria-hidden="true"><path d="M0 147 C28 138 51 148 80 126 S126 134 160 101 S210 119 251 83 S300 99 340 69 S390 83 430 52 S482 68 520 30 S570 36 600 13" fill="none" stroke="#bdf276" stroke-width="3"/></svg></div></article><article class="card" id="portfolio"><div class="label">ALLOCATION</div><div class="allocation" style="margin-top:23px"><div class="donut"></div><div class="legend"><span><i><b class="dot"></b>Crypto</i>43%</span><span><i><b class="dot" style="background:#28b887"></b>Stocks</i>26%</span><span><i><b class="dot" style="background:#548a7a"></b>ETFs</i>17%</span><span><i><b class="dot" style="background:#bf9b53"></b>Cash</i>14%</span></div></div></article></div></section>
+      <section class="markets" id="markets"><h2>Markets</h2><article class="card"><table class="table"><thead><tr><th>ASSET</th><th>PRICE</th><th>24H CHANGE</th><th>HOLDINGS</th></tr></thead><tbody><tr><td class="asset">Bitcoin<small>BTC · CRYPTO</small></td><td class="price">$67,842.10</td><td class="positive">+2.48%</td><td>0.124 BTC</td></tr><tr><td class="asset">Ethereum<small>ETH · CRYPTO</small></td><td class="price">$3,531.28</td><td class="positive">+1.12%</td><td>1.80 ETH</td></tr><tr><td class="asset">NVIDIA<small>NVDA · STOCK</small></td><td class="price">$873.42</td><td class="positive">+0.84%</td><td>6 shares</td></tr><tr><td class="asset">Apple<small>AAPL · STOCK</small></td><td class="price">$193.18</td><td class="negative">−0.27%</td><td>10 shares</td></tr></tbody></table></article></section>
+      <p class="demo-footer" id="activity">Cyclone is a fictional, local-only user-interface demonstration. Prices, balances, identity status, and holdings are examples—not live financial information or investment advice.</p>
+    </main>
+  </div>
+  <script>
+    const form=document.querySelector('#login-form'),login=document.querySelector('#login'),dashboard=document.querySelector('#dashboard'),error=document.querySelector('#error');
+    form.addEventListener('submit',event=>{event.preventDefault();const email=form.elements.email.value.trim(),entry=form.elements.password.value;if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)&&entry.length>=8){login.style.display='none';dashboard.style.display='block';error.textContent=''}else error.textContent='Enter a valid email address and a password of at least 8 characters.'});
+    document.querySelector('#logout').addEventListener('click',()=>{form.reset();dashboard.style.display='none';login.style.display='grid'});
+  </script>
 </body>
 </html>
