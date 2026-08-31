@@ -2,7 +2,7 @@ name: Deploy static site to Pages
 
 on:
   push:
-    branches: [copilot/create-broker-website]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
