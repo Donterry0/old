@@ -31,16 +31,45 @@
     <main class="content">
       <header class="top"><small>DEMO ENVIRONMENT · DATA IS ILLUSTRATIVE</small><div class="user"><span class="avatar">F</span> Femi <button id="logout" style="border:0;background:none;color:#90a69e">Sign out</button></div></header>
       <div class="warning"><span aria-hidden="true">⚠</span><span><b>KYC not completed.</b> Identity verification is unavailable in this local demonstration. Trading and transfers are disabled.</span></div>
-      <section id="overview"><div class="head"><div><h1>Good afternoon, Femi.</h1><p>Here is your illustrative portfolio snapshot.</p></div><span class="period">LAST 24 HOURS</span></div>
+      <section id="overview"><div class="head"><div><h1 id="greeting">Welcome, Femi.</h1><p>Here is your illustrative portfolio snapshot.</p></div><span class="period">LAST 24 HOURS</span></div>
       <div class="grid"><article class="card"><div class="label">DEMO PORTFOLIO VALUE</div><div class="value">$24,860.42</div><div class="change">+ $412.68 (1.69%) today</div><div class="chart"><svg viewBox="0 0 600 165" preserveAspectRatio="none" aria-hidden="true"><path d="M0 147 C28 138 51 148 80 126 S126 134 160 101 S210 119 251 83 S300 99 340 69 S390 83 430 52 S482 68 520 30 S570 36 600 13" fill="none" stroke="#bdf276" stroke-width="3"/></svg></div></article><article class="card" id="portfolio"><div class="label">ALLOCATION</div><div class="allocation" style="margin-top:23px"><div class="donut"></div><div class="legend"><span><i><b class="dot"></b>Crypto</i>43%</span><span><i><b class="dot" style="background:#28b887"></b>Stocks</i>26%</span><span><i><b class="dot" style="background:#548a7a"></b>ETFs</i>17%</span><span><i><b class="dot" style="background:#bf9b53"></b>Cash</i>14%</span></div></div></article></div></section>
       <section class="markets" id="markets"><h2>Markets</h2><article class="card"><table class="table"><thead><tr><th>ASSET</th><th>PRICE</th><th>24H CHANGE</th><th>HOLDINGS</th></tr></thead><tbody><tr><td class="asset">Bitcoin<small>BTC · CRYPTO</small></td><td class="price">$67,842.10</td><td class="positive">+2.48%</td><td>0.124 BTC</td></tr><tr><td class="asset">Ethereum<small>ETH · CRYPTO</small></td><td class="price">$3,531.28</td><td class="positive">+1.12%</td><td>1.80 ETH</td></tr><tr><td class="asset">NVIDIA<small>NVDA · STOCK</small></td><td class="price">$873.42</td><td class="positive">+0.84%</td><td>6 shares</td></tr><tr><td class="asset">Apple<small>AAPL · STOCK</small></td><td class="price">$193.18</td><td class="negative">−0.27%</td><td>10 shares</td></tr></tbody></table></article></section>
       <p class="demo-footer" id="activity">Cyclone is a fictional, local-only user-interface demonstration. Prices, balances, identity status, and holdings are examples—not live financial information or investment advice.</p>
     </main>
   </div>
   <script>
-    const form=document.querySelector('#login-form'),login=document.querySelector('#login'),dashboard=document.querySelector('#dashboard'),error=document.querySelector('#error');
-    form.addEventListener('submit',event=>{event.preventDefault();const email=form.elements.email.value.trim(),entry=form.elements.password.value;if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)&&entry.length>=8){login.style.display='none';dashboard.style.display='block';error.textContent=''}else error.textContent='Enter a valid email address and a password of at least 8 characters.'});
-    document.querySelector('#logout').addEventListener('click',()=>{form.reset();dashboard.style.display='none';login.style.display='grid'});
+    const form = document.querySelector('#login-form');
+    const login = document.querySelector('#login');
+    const dashboard = document.querySelector('#dashboard');
+    const error = document.querySelector('#error');
+    const greeting = document.querySelector('#greeting');
+
+    function setGreeting() {
+      const hour = new Date().getHours();
+      const salutation = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
+      greeting.textContent = `${salutation}, Femi.`;
+    }
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const email = form.elements.email.value.trim();
+      const entry = form.elements.password.value;
+
+      if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && entry.length >= 8) {
+        setGreeting();
+        login.style.display = 'none';
+        dashboard.style.display = 'block';
+        error.textContent = '';
+      } else {
+        error.textContent = 'Enter a valid email address and a password of at least 8 characters.';
+      }
+    });
+
+    document.querySelector('#logout').addEventListener('click', () => {
+      form.reset();
+      dashboard.style.display = 'none';
+      login.style.display = 'grid';
+    });
   </script>
 </body>
 </html>
