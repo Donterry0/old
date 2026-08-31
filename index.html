@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#07100f;--panel:#0d1b19;--panel2:#122725;--line:#24403b;--text:#eff6f2;--muted:#90a69e;--mint:#bdf276;--green:#28b887;--amber:#ffd274;--red:#f17873}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Manrope,Arial,sans-serif}button,input{font:inherit}button{cursor:pointer}#dashboard{display:none}.login{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 85% 8%,#1b443b 0,transparent 28%),var(--bg)}.login-card{width:min(100%,440px);padding:38px;border:1px solid var(--line);border-radius:24px;background:rgba(13,27,25,.92);box-shadow:0 24px 70px #0008}.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;letter-spacing:-.06em}.logo{display:grid;place-items:center;width:32px;height:32px;background:var(--mint);color:#10241e;border-radius:50% 50% 9px 50%;font-size:19px;transform:rotate(-18deg)}.logo span{transform:rotate(18deg)}.tag{margin:28px 0 8px;color:var(--mint);font:11px "DM Mono",monospace;letter-spacing:.12em;text-transform:uppercase}.login h1{margin:0;font-size:34px;letter-spacing:-.06em}.login p{color:var(--muted);font-size:14px;line-height:1.6}.demo-note{margin:23px 0;padding:12px;border:1px solid #7b6639;background:#342d1d;color:#f7dfa5;border-radius:10px;font-size:12px;line-height:1.5}.field{display:grid;gap:7px;margin-top:17px;color:#cad9d2;font-size:13px;font-weight:700}.field input{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;background:#081211;color:white;outline:none}.field input:focus{border-color:var(--mint)}.submit{width:100%;margin-top:25px;padding:14px;border:0;border-radius:10px;background:var(--mint);color:#11231e;font-weight:800}.error{min-height:19px;margin:12px 0 0;color:var(--red);font-size:12px}.hint{color:#70867e!important;font:11px "DM Mono",monospace}.pw-wrap{position:relative}.pw-wrap input{padding-right:42px}.pw-toggle{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;font-size:16px;color:var(--muted);padding:4px}.login-extras{display:flex;justify-content:space-between;align-items:center;margin-top:17px;font-size:12px;color:var(--muted)}.remember{display:flex;align-items:center;gap:6px;cursor:pointer}.remember input{accent-color:var(--mint)}.forgot{color:var(--mint);text-decoration:none}.forgot:hover{text-decoration:underline}.spinner{display:inline-block;width:16px;height:16px;border:2px solid #11231e;border-top-color:transparent;border-radius:50%;animation:spin .6s linear infinite}.hidden{display:none}@keyframes spin{to{transform:rotate(360deg)}}.login-card{transition:opacity .3s}#dashboard{opacity:0;transition:opacity .4s}#dashboard.show{opacity:1}.app{min-height:100vh}.sidebar{position:fixed;width:238px;inset:0 auto 0 0;padding:28px 17px;border-right:1px solid var(--line);background:#091514}.nav{display:grid;gap:4px;margin-top:46px}.nav a{padding:11px 13px;border-radius:9px;color:var(--muted);font-size:13px;font-weight:700;text-decoration:none}.nav a.active,.nav a:hover{background:#18332e;color:var(--mint)}.sidebar-foot{position:absolute;bottom:27px;color:#668078;font-size:11px}.content{margin-left:238px;padding:0 38px 42px}.top{height:76px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}.top small{color:var(--muted);font:11px "DM Mono",monospace}.user{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:700}.avatar{display:grid;place-items:center;width:30px;height:30px;background:#224940;border-radius:50%;color:var(--mint)}.warning{display:flex;gap:12px;align-items:center;margin:25px 0;padding:15px 17px;border:1px solid #806a36;border-radius:12px;background:#322c1c;color:#ffe39b;font-size:13px}.warning b{color:white}.head{display:flex;justify-content:space-between;align-items:end;margin:31px 0 26px}.head h1{margin:0;font-size:32px;letter-spacing:-.06em}.head p{margin:4px 0;color:var(--muted);font-size:13px}.period{border:1px solid var(--line);border-radius:8px;padding:9px 11px;color:var(--muted);background:var(--panel);font-size:12px}.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.card{padding:23px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}.label{color:var(--muted);font:11px "DM Mono",monospace;letter-spacing:.08em}.value{margin:11px 0 2px;font-size:35px;font-weight:800;letter-spacing:-.06em}.change{color:var(--mint);font:12px "DM Mono",monospace}.chart{height:165px;margin-top:22px;border-bottom:1px solid var(--line);background:repeating-linear-gradient(0deg,transparent 0 40px,#17312d 41px)}.chart svg{width:100%;height:100%}.allocation{display:grid;grid-template-columns:108px 1fr;gap:17px;align-items:center}.donut{width:108px;height:108px;border-radius:50%;background:conic-gradient(var(--mint) 0 43%,var(--green) 43% 69%,#548a7a 69% 86%,#bf9b53 86%);position:relative}.donut:after{content:"DEMO";position:absolute;inset:24px;display:grid;place-items:center;background:var(--panel);border-radius:50%;font:10px "DM Mono",monospace;color:var(--muted)}.legend{display:grid;gap:10px;font-size:12px}.legend span{display:flex;justify-content:space-between;color:var(--muted)}.dot{display:inline-block;width:8px;height:8px;margin-right:7px;border-radius:50%;background:var(--mint)}.markets{margin-top:18px}.markets h2{margin:0 0 15px;font-size:18px;letter-spacing:-.04em}.table{width:100%;border-collapse:collapse;font-size:13px}.table th{text-align:left;padding:0 8px 11px;color:var(--muted);font:10px "DM Mono",monospace;letter-spacing:.06em}.table td{padding:15px 8px;border-top:1px solid var(--line)}.asset{font-weight:800}.asset small{display:block;margin-top:2px;color:var(--muted);font:10px "DM Mono",monospace}.price{font-family:"DM Mono",monospace}.positive{color:var(--mint)}.negative{color:var(--red)}.demo-footer{margin-top:24px;color:#71867f;font-size:11px;line-height:1.5}@media(max-width:800px){.sidebar{position:static;width:auto;padding:18px 22px;border-right:0;border-bottom:1px solid var(--line)}.sidebar .nav,.sidebar-foot{display:none}.content{margin:0;padding:0 20px 30px}.grid{grid-template-columns:1fr}.top{height:63px}.warning{align-items:flex-start}.head{align-items:flex-start;gap:12px;flex-direction:column}.value{font-size:30px}.allocation{grid-template-columns:90px 1fr}.donut{width:90px;height:90px}.donut:after{inset:20px}}
+    :root{--bg:#07100f;--panel:#0d1b19;--panel2:#122725;--line:#24403b;--text:#eff6f2;--muted:#90a69e;--mint:#bdf276;--green:#28b887;--amber:#ffd274;--red:#f17873}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Manrope,Arial,sans-serif}button,input{font:inherit}button{cursor:pointer}#dashboard{display:none}.login{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 85% 8%,#1b443b 0,transparent 28%),var(--bg)}.login-card{width:min(100%,440px);padding:38px;border:1px solid var(--line);border-radius:24px;background:rgba(13,27,25,.92);box-shadow:0 24px 70px #0008}.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;letter-spacing:-.06em}.logo{display:grid;place-items:center;width:32px;height:32px;background:var(--mint);color:#10241e;border-radius:50% 50% 9px 50%;font-size:19px;transform:rotate(-18deg)}.logo span{transform:rotate(18deg)}.tag{margin:28px 0 8px;color:var(--mint);font:11px "DM Mono",monospace;letter-spacing:.12em;text-transform:uppercase}.login h1{margin:0;font-size:34px;letter-spacing:-.06em}.login p{color:var(--muted);font-size:14px;line-height:1.6}.demo-note{margin:23px 0;padding:12px;border:1px solid #7b6639;background:#342d1d;color:#f7dfa5;border-radius:10px;font-size:12px;line-height:1.5}.field{display:grid;gap:7px;margin-top:17px;color:#cad9d2;font-size:13px;font-weight:700}.field input{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;background:#081211;color:white;outline:none}.field input:focus{border-color:var(--mint)}.submit{width:100%;margin-top:25px;padding:14px;border:0;border-radius:10px;background:var(--mint);color:#11231e;font-weight:800}.error{min-height:19px;margin:12px 0 0;color:var(--red);font-size:12px}.hint{color:#70867e!important;font:11px "DM Mono",monospace}.pw-wrap{position:relative}.pw-wrap input{padding-right:42px}.pw-toggle{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:0;font-size:16px;color:var(--muted);padding:4px}.login-extras{display:flex;justify-content:space-between;align-items:center;margin-top:17px;font-size:12px;color:var(--muted)}.remember{display:flex;align-items:center;gap:6px;cursor:pointer}.remember input{accent-color:var(--mint)}.forgot{color:var(--mint);text-decoration:none}.forgot:hover{text-decoration:underline}.spinner{display:inline-block;width:16px;height:16px;border:2px solid #11231e;border-top-color:transparent;border-radius:50%;animation:spin .6s linear infinite}.hidden{display:none}@keyframes spin{to{transform:rotate(360deg)}}.login-card{transition:opacity .3s}#dashboard{opacity:0;transition:opacity .4s}#dashboard.show{opacity:1}.app{min-height:100vh}.sidebar{position:fixed;width:238px;inset:0 auto 0 0;padding:28px 17px;border-right:1px solid var(--line);background:#091514}.nav{display:grid;gap:4px;margin-top:46px}.nav a{padding:11px 13px;border-radius:9px;color:var(--muted);font-size:13px;font-weight:700;text-decoration:none}.nav a.active,.nav a:hover{background:#18332e;color:var(--mint)}.sidebar-foot{position:absolute;bottom:27px;color:#668078;font-size:11px}.content{margin-left:238px;padding:0 38px 42px}.top{height:76px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}.top small{color:var(--muted);font:11px "DM Mono",monospace}.user{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:700}.avatar{display:grid;place-items:center;width:30px;height:30px;background:#224940;border-radius:50%;color:var(--mint)}.warning{display:flex;gap:12px;align-items:center;margin:25px 0;padding:15px 17px;border:1px solid #806a36;border-radius:12px;background:#322c1c;color:#ffe39b;font-size:13px}.warning b{color:white}.head{display:flex;justify-content:space-between;align-items:end;margin:31px 0 26px}.head h1{margin:0;font-size:32px;letter-spacing:-.06em}.head p{margin:4px 0;color:var(--muted);font-size:13px}.period{border:1px solid var(--line);border-radius:8px;padding:9px 11px;color:var(--muted);background:var(--panel);font-size:12px}.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.card{padding:23px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}.label{color:var(--muted);font:11px "DM Mono",monospace;letter-spacing:.08em}.value{margin:11px 0 2px;font-size:35px;font-weight:800;letter-spacing:-.06em}.change{color:var(--mint);font:12px "DM Mono",monospace}.chart{height:165px;margin-top:22px;border-bottom:1px solid var(--line);background:repeating-linear-gradient(0deg,transparent 0 40px,#17312d 41px)}.chart svg{width:100%;height:100%}.allocation{display:grid;grid-template-columns:108px 1fr;gap:17px;align-items:center}.donut{width:108px;height:108px;border-radius:50%;background:conic-gradient(var(--mint) 0 43%,var(--green) 43% 69%,#548a7a 69% 86%,#bf9b53 86%);position:relative}.donut:after{content:"DEMO";position:absolute;inset:24px;display:grid;place-items:center;background:var(--panel);border-radius:50%;font:10px "DM Mono",monospace;color:var(--muted)}.legend{display:grid;gap:10px;font-size:12px}.legend span{display:flex;justify-content:space-between;color:var(--muted)}.dot{display:inline-block;width:8px;height:8px;margin-right:7px;border-radius:50%;background:var(--mint)}.markets{margin-top:18px}.markets h2{margin:0 0 15px;font-size:18px;letter-spacing:-.04em}.table{width:100%;border-collapse:collapse;font-size:13px}.table th{text-align:left;padding:0 8px 11px;color:var(--muted);font:10px "DM Mono",monospace;letter-spacing:.06em}.table td{padding:15px 8px;border-top:1px solid var(--line)}.asset{font-weight:800}.asset small{display:block;margin-top:2px;color:var(--muted);font:10px "DM Mono",monospace}.price{font-family:"DM Mono",monospace}.positive{color:var(--mint)}.negative{color:var(--red)}.demo-footer{margin-top:24px;color:#71867f;font-size:11px;line-height:1.5}.balance-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.currency-select{padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--panel2);color:var(--text);font-size:13px;font-weight:700;outline:none}.currency-select:focus{border-color:var(--mint)}.broker-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}.broker-form{padding-right:20px;border-right:1px solid var(--line)}.broker-tabs{display:flex;gap:6px;margin-bottom:16px}.broker-tab{flex:1;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--panel2);color:var(--muted);font-weight:700;font-size:13px}.broker-tab.active{background:var(--mint);color:#11231e;border-color:var(--mint)}.broker-info{display:flex;flex-direction:column;gap:14px}.orderbook{display:grid;gap:6px;margin-top:12px;font:12px "DM Mono",monospace}.ob-row{display:flex;align-items:center;gap:10px;position:relative}.ob-row span:first-child{width:100px}.ob-row span:last-child{margin-left:auto;color:var(--muted)}.ob-bar{height:22px;border-radius:3px;background:rgba(241,120,115,.15)}.bid-bar{background:rgba(189,242,118,.12)!important}.ob-spread{text-align:center;color:var(--muted);font-size:11px;padding:4px 0}.ask{color:var(--red)}.bid{color:var(--mint)}@media(max-width:800px){.broker-grid{grid-template-columns:1fr}.broker-form{padding-right:0;border-right:0;border-bottom:1px solid var(--line);padding-bottom:20px}}@media(max-width:800px){.sidebar{position:static;width:auto;padding:18px 22px;border-right:0;border-bottom:1px solid var(--line)}.sidebar .nav,.sidebar-foot{display:none}.content{margin:0;padding:0 20px 30px}.grid{grid-template-columns:1fr}.top{height:63px}.warning{align-items:flex-start}.head{align-items:flex-start;gap:12px;flex-direction:column}.value{font-size:30px}.allocation{grid-template-columns:90px 1fr}.donut{width:90px;height:90px}.donut:after{inset:20px}}
   </style>
 </head>
 <body>
@@ -30,13 +30,140 @@
     </form>
   </section>
   <div id="dashboard" class="app">
-    <aside class="sidebar"><div class="brand"><span class="logo"><span>↯</span></span>cyclone</div><nav class="nav"><a class="active" href="#overview">Overview</a><a href="#markets">Markets</a><a href="#portfolio">Portfolio</a><a href="#activity">Activity</a></nav><div class="sidebar-foot">LOCAL DEMO · NO LIVE TRADING</div></aside>
+    <aside class="sidebar">
+      <div class="brand"><span class="logo"><span>↯</span></span>cyclone</div>
+      <nav class="nav">
+        <a class="active" href="#overview">Overview</a>
+        <a href="#coins-section">Coin Prices</a>
+        <a href="#stocks-section">Stocks</a>
+        <a href="#broker-section">Broker</a>
+        <a href="#activity">Activity</a>
+      </nav>
+      <div class="sidebar-foot">LOCAL DEMO · NO LIVE TRADING</div>
+    </aside>
     <main class="content">
       <header class="top"><small>DEMO ENVIRONMENT · DATA IS ILLUSTRATIVE</small><div class="user"><span class="avatar">F</span> <span id="dashboard-username">Femi</span> <button id="logout" style="border:0;background:none;color:#90a69e">Sign out</button></div></header>
-      <div class="warning"><span aria-hidden="true">⚠</span><span><b>KYC not completed.</b> Identity verification is unavailable in this local demonstration. Trading and transfers are disabled.</span></div>
-      <section id="overview"><div class="head"><div><h1 id="greeting">Welcome, Femi.</h1><p>Here is your illustrative portfolio snapshot.</p></div><span class="period">LAST 24 HOURS</span></div>
-      <div class="grid"><article class="card"><div class="label">DEMO PORTFOLIO VALUE</div><div class="value">$24,860.42</div><div class="change">+ $412.68 (1.69%) today</div><div class="chart"><svg viewBox="0 0 600 165" preserveAspectRatio="none" aria-hidden="true"><path d="M0 147 C28 138 51 148 80 126 S126 134 160 101 S210 119 251 83 S300 99 340 69 S390 83 430 52 S482 68 520 30 S570 36 600 13" fill="none" stroke="#bdf276" stroke-width="3"/></svg></div></article><article class="card" id="portfolio"><div class="label">ALLOCATION</div><div class="allocation" style="margin-top:23px"><div class="donut"></div><div class="legend"><span><i><b class="dot"></b>Crypto</i>43%</span><span><i><b class="dot" style="background:#28b887"></b>Stocks</i>26%</span><span><i><b class="dot" style="background:#548a7a"></b>ETFs</i>17%</span><span><i><b class="dot" style="background:#bf9b53"></b>Cash</i>14%</span></div></div></article></div></section>
-      <section class="markets" id="markets"><h2>Markets</h2><article class="card"><table class="table"><thead><tr><th>ASSET</th><th>PRICE</th><th>24H CHANGE</th><th>HOLDINGS</th></tr></thead><tbody><tr><td class="asset">Bitcoin<small>BTC · CRYPTO</small></td><td class="price">$67,842.10</td><td class="positive">+2.48%</td><td>0.124 BTC</td></tr><tr><td class="asset">Ethereum<small>ETH · CRYPTO</small></td><td class="price">$3,531.28</td><td class="positive">+1.12%</td><td>1.80 ETH</td></tr><tr><td class="asset">NVIDIA<small>NVDA · STOCK</small></td><td class="price">$873.42</td><td class="positive">+0.84%</td><td>6 shares</td></tr><tr><td class="asset">Apple<small>AAPL · STOCK</small></td><td class="price">$193.18</td><td class="negative">−0.27%</td><td>10 shares</td></tr></tbody></table></article></section>
+
+      <div class="warning"><span aria-hidden="true">⚠</span><span><b>KYC not completed.</b> Identity verification is required to enable live trading and withdrawals. Complete your verification to unlock all features.</span></div>
+
+      <!-- BALANCE -->
+      <section id="overview">
+        <div class="head"><div><h1 id="greeting">Welcome, Femi.</h1><p>Here is your broker account overview.</p></div><span class="period">LIVE BALANCE</span></div>
+        <div class="grid">
+          <article class="card">
+            <div class="label">ACCOUNT BALANCE</div>
+            <div class="balance-row">
+              <div class="value" id="balance-display">$10,000.00</div>
+              <select id="currency-select" class="currency-select">
+                <option value="USD" selected>USD ($)</option>
+                <option value="EUR">EUR (€)</option>
+                <option value="GBP">GBP (£)</option>
+                <option value="NGN">NGN (₦)</option>
+                <option value="JPY">JPY (¥)</option>
+                <option value="CAD">CAD (C$)</option>
+                <option value="AUD">AUD (A$)</option>
+                <option value="CHF">CHF (CHF)</option>
+                <option value="INR">INR (₹)</option>
+                <option value="BTC">BTC (₿)</option>
+              </select>
+            </div>
+            <div class="change">Available for trading · Demo funds</div>
+            <div class="chart"><svg viewBox="0 0 600 165" preserveAspectRatio="none" aria-hidden="true"><path d="M0 147 C28 138 51 148 80 126 S126 134 160 101 S210 119 251 83 S300 99 340 69 S390 83 430 52 S482 68 520 30 S570 36 600 13" fill="none" stroke="#bdf276" stroke-width="3"/></svg></div>
+          </article>
+          <article class="card" id="portfolio">
+            <div class="label">ALLOCATION</div>
+            <div class="allocation" style="margin-top:23px">
+              <div class="donut"></div>
+              <div class="legend">
+                <span><i><b class="dot"></b>Crypto</i>43%</span>
+                <span><i><b class="dot" style="background:#28b887"></b>Stocks</i>26%</span>
+                <span><i><b class="dot" style="background:#548a7a"></b>ETFs</i>17%</span>
+                <span><i><b class="dot" style="background:#bf9b53"></b>Cash</i>14%</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- COIN PRICES -->
+      <section class="markets" id="coins-section">
+        <h2>Coin Prices</h2>
+        <article class="card">
+          <table class="table">
+            <thead><tr><th>COIN</th><th>PRICE</th><th>24H CHANGE</th><th>MARKET CAP</th></tr></thead>
+            <tbody>
+              <tr><td class="asset">Bitcoin<small>BTC</small></td><td class="price">$67,842.10</td><td class="positive">+2.48%</td><td class="price">$1.33T</td></tr>
+              <tr><td class="asset">Ethereum<small>ETH</small></td><td class="price">$3,531.28</td><td class="positive">+1.12%</td><td class="price">$424.1B</td></tr>
+              <tr><td class="asset">Solana<small>SOL</small></td><td class="price">$172.56</td><td class="positive">+4.37%</td><td class="price">$79.8B</td></tr>
+              <tr><td class="asset">BNB<small>BNB</small></td><td class="price">$598.32</td><td class="positive">+0.63%</td><td class="price">$91.2B</td></tr>
+              <tr><td class="asset">XRP<small>XRP</small></td><td class="price">$0.6284</td><td class="negative">−1.05%</td><td class="price">$34.6B</td></tr>
+              <tr><td class="asset">Cardano<small>ADA</small></td><td class="price">$0.4512</td><td class="positive">+0.89%</td><td class="price">$16.1B</td></tr>
+              <tr><td class="asset">Dogecoin<small>DOGE</small></td><td class="price">$0.1547</td><td class="positive">+3.21%</td><td class="price">$22.3B</td></tr>
+            </tbody>
+          </table>
+        </article>
+      </section>
+
+      <!-- STOCKS -->
+      <section class="markets" id="stocks-section">
+        <h2>Stocks</h2>
+        <article class="card">
+          <table class="table">
+            <thead><tr><th>STOCK</th><th>PRICE</th><th>24H CHANGE</th><th>VOLUME</th></tr></thead>
+            <tbody>
+              <tr><td class="asset">NVIDIA<small>NVDA · NASDAQ</small></td><td class="price">$873.42</td><td class="positive">+0.84%</td><td class="price">42.1M</td></tr>
+              <tr><td class="asset">Apple<small>AAPL · NASDAQ</small></td><td class="price">$193.18</td><td class="negative">−0.27%</td><td class="price">51.3M</td></tr>
+              <tr><td class="asset">Tesla<small>TSLA · NASDAQ</small></td><td class="price">$248.91</td><td class="positive">+1.63%</td><td class="price">98.7M</td></tr>
+              <tr><td class="asset">Amazon<small>AMZN · NASDAQ</small></td><td class="price">$186.52</td><td class="positive">+0.41%</td><td class="price">38.2M</td></tr>
+              <tr><td class="asset">Microsoft<small>MSFT · NASDAQ</small></td><td class="price">$417.88</td><td class="negative">−0.15%</td><td class="price">22.8M</td></tr>
+              <tr><td class="asset">Alphabet<small>GOOG · NASDAQ</small></td><td class="price">$175.34</td><td class="positive">+0.52%</td><td class="price">27.4M</td></tr>
+            </tbody>
+          </table>
+        </article>
+      </section>
+
+      <!-- BROKER -->
+      <section class="markets" id="broker-section">
+        <h2>Broker — Quick Trade</h2>
+        <article class="card">
+          <div class="broker-grid">
+            <div class="broker-form">
+              <div class="broker-tabs">
+                <button class="broker-tab active" data-action="buy">Buy</button>
+                <button class="broker-tab" data-action="sell">Sell</button>
+              </div>
+              <label class="field">Asset
+                <select id="trade-asset" class="currency-select" style="width:100%;margin-top:4px">
+                  <option>BTC — Bitcoin</option>
+                  <option>ETH — Ethereum</option>
+                  <option>SOL — Solana</option>
+                  <option>NVDA — NVIDIA</option>
+                  <option>AAPL — Apple</option>
+                  <option>TSLA — Tesla</option>
+                </select>
+              </label>
+              <label class="field">Amount (USD)
+                <input type="number" id="trade-amount" placeholder="e.g. 500" min="1" max="10000" style="width:100%">
+              </label>
+              <button class="submit" id="trade-btn" style="margin-top:14px" disabled>Complete KYC to trade</button>
+              <p style="color:var(--red);font-size:11px;margin-top:8px">Trading is disabled until KYC verification is completed.</p>
+            </div>
+            <div class="broker-info">
+              <div class="label">ORDER BOOK PREVIEW</div>
+              <div class="orderbook">
+                <div class="ob-row ask"><span>$67,855.20</span><span class="ob-bar" style="width:72%"></span><span>0.842</span></div>
+                <div class="ob-row ask"><span>$67,850.10</span><span class="ob-bar" style="width:58%"></span><span>1.204</span></div>
+                <div class="ob-row ask"><span>$67,846.30</span><span class="ob-bar" style="width:40%"></span><span>0.531</span></div>
+                <div class="ob-spread">Spread: $4.20</div>
+                <div class="ob-row bid"><span>$67,842.10</span><span class="ob-bar bid-bar" style="width:65%"></span><span>1.102</span></div>
+                <div class="ob-row bid"><span>$67,838.40</span><span class="ob-bar bid-bar" style="width:48%"></span><span>0.773</span></div>
+                <div class="ob-row bid"><span>$67,834.80</span><span class="ob-bar bid-bar" style="width:33%"></span><span>0.415</span></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
       <p class="demo-footer" id="activity">Cyclone is a fictional, local-only user-interface demonstration. Prices, balances, identity status, and holdings are examples—not live financial information or investment advice.</p>
     </main>
   </div>
@@ -57,6 +184,7 @@
       const local = email.split('@')[0].replace(/[._+\-]/g, ' ');
       return local.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
     }
+    /* unused — all users see "Femi" */
 
     function setGreeting(name) {
       const hour = new Date().getHours();
@@ -89,13 +217,12 @@
         submitBtn.disabled = true;
 
         setTimeout(() => {
-          const name = nameFromEmail(email);
-          setGreeting(name);
-          dashboardUsername.textContent = name;
+          setGreeting('Femi');
+          dashboardUsername.textContent = 'Femi';
           resetSubmitBtn();
           login.style.display = 'none';
           dashboard.style.display = 'block';
-          requestAnimationFrame(() => dashboard.classList.add('show'));
+          requestAnimationFrame(() => requestAnimationFrame(() => dashboard.classList.add('show')));
         }, 800);
       } else {
         error.textContent = 'Enter a valid email address and a password of at least 8 characters.';
@@ -108,6 +235,39 @@
       dashboard.classList.remove('show');
       dashboard.style.display = 'none';
       login.style.display = 'grid';
+      document.querySelector('#currency-select').value = 'USD';
+      document.querySelector('#balance-display').textContent = '$10,000.00';
+    });
+
+    /* Currency conversion */
+    const rates = {USD:1,EUR:0.92,GBP:0.79,NGN:1580,JPY:149.5,CAD:1.36,AUD:1.53,CHF:0.88,INR:83.12,BTC:0.0000147};
+    const symbols = {USD:'$',EUR:'€',GBP:'£',NGN:'₦',JPY:'¥',CAD:'C$',AUD:'A$',CHF:'CHF ',INR:'₹',BTC:'₿'};
+    const BASE = 10000;
+    document.querySelector('#currency-select').addEventListener('change', function(){
+      const c = this.value;
+      const converted = BASE * rates[c];
+      const sym = symbols[c];
+      let formatted;
+      if(c === 'BTC') formatted = sym + converted.toFixed(6);
+      else if(c === 'JPY' || c === 'NGN' || c === 'INR') formatted = sym + Math.round(converted).toLocaleString();
+      else formatted = sym + converted.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+      document.querySelector('#balance-display').textContent = formatted;
+    });
+
+    /* Broker tabs */
+    document.querySelectorAll('.broker-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.broker-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+
+    /* Sidebar nav highlighting */
+    document.querySelectorAll('.nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelectorAll('.nav a').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
     });
   </script>
 </body>
